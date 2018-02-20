@@ -1,0 +1,7 @@
+Host {{ inventory_hostname }}
+    Hostname {{ ip }}
+    IdentityFile ~/.ssh/id_rsa
+{% if jumpserver is defined %}
+    ProxyCommand ssh {{ jumpserver }} nc {{ ip }} 22
+{% endif %}
+    ForwardAgent yes
