@@ -1,0 +1,114 @@
+- include_vars: group_vars/slurm
+- include_vars: group_vars/slurmPackages
+
+# Add Slurm
+- name: add slurm group
+  group: name={{ slurmgroupname }} gid={{ slurmgid }} state=present
+  tags: slurm
+
+- name: add user slurm
+  user: name={{ slurmname }} group={{ slurmgroupname }} comment="Slurm workload manager" home=/var/lib/{{ slurmname }} uid={{ slurmuid }} shell=/bin/bash state=present
+  tags: slurm
+
+
+- name: Install utilies for Slurm Packaging
+  yum: name={{ item }} state=present
+  with_items:
+     - rsync
+     - epel-release
+     - rpm-build
+     - gcc
+     - openssl
+     - openssl-devel
+     - libssh2-devel
+     - pam-devel
+     - numactl
+     - numactl-devel
+     - hwloc
+     - hwloc-devel
+     - lua
+     - lua-devel
+     - readline-devel
+     - rrdtool-devel
+     - ncurses-devel
+     - gtk2-devel
+     - man2html
+     - libibmad
+     - libibumad
+     - perl-Switch
+     - perl-ExtUtils-MakeMaker
+     - mariadb-server
+     - mariadb-devel
+  tags: slurmpackages
+
+
+- name: Check if  the version Slurm-{{ slurmversion }} is already downloaded
+  file: path={{ pathslurm }}/Slurm-{{ slurmversion }} owner=root group=root mode=0700 state=directory
+  tags: slurmpackages
+
+- name: check if {{pathslurm}}/Slurm-{{ slurmversion }}.tar.bz2 exist
+  stat: path={{pathslurm}}/Slurm-{{ slurmversion }}/slurm-{{ slurmversion }}.tar.bz2
+  register: slurmdownload
+  tags: slurmpackages
+
+
+- name: Download Slurm-{{ slurmversion }}.tar.bz2
+  get_url:
+    url: "{{ slurmurl }}/slurm-{{ slurmversion }}.tar.bz2"
+    dest: "{{ pathslurm }}/Slurm-{{ slurmversion }}"
+  when: not slurmdownload.stat.exists
+  tags: slurmpackages
+
+- name: Check if rpm are already created
+  stat: path={{pathslurm}}/Slurm-{{ slurmversion }}/RPMS/x86_64/slurm-{{ slurmversionmodif }}.el7.centos.x86_64.rpm
+  register: slurmrpm
+  tags: slurmpackages
+
+- name: Create rpm files
+  command: "{{ item }} chdir={{ pathslurm }}/Slurm-{{ slurmversion }}"
+  with_items:
+      - rpmbuild --define "_topdir {{ pathslurm }}/Slurm-{{ slurmversion }}" -ta slurm-{{ slurmversion }}.tar.bz2
+  when: not slurmrpm.stat.exists
+  tags: slurmpackages
+
+
+- name: Create the directories rpms
+  file:
+    path: "/home/{{ uraniumadm }}/rpms"
+    state: directory
+
+- name: List files in {{ pathslurm }}/Slurm-{{ slurmversion }}/RPMS
+  find:
+    path: "{{ pathslurm }}/Slurm-{{ slurmversion }}/RPMS"
+    recurse: yes
+    file_type: any
+  register: find_result
+
+
+- set_fact: pattern="{{ pathslurm }}/Slurm-{{ slurmversion }}/RPMS"
+- set_fact: pathrpms="{{ uraniumrpms }}"
+
+- name: Create the directories
+  file:
+    path: "{{ item.path | regex_replace(pattern,'/home/uraniumadm/rpms') }}"
+    state: directory
+    owner: "{{ uraniumadm }}"
+    group: "{{ uraniumgroup }}"
+    mode: "{{ item.mode }}"
+  with_items:
+    - "{{ find_result.files }}"
+  when:
+    - item.isdir
+
+- name: Copy the files
+  copy:
+    src: "{{ item.path }}"
+    dest: "{{ item.path | regex_replace(pattern,'/home/uraniumadm/rpms') }}"
+    owner: "{{ uraniumadm }}"
+    group: "{{ uraniumgroup }}"
+    remote_src: yes
+    mode: "{{ item.mode }}"
+  with_items:
+    - "{{ find_result.files }}"
+  when:
+    - item.isdir == False

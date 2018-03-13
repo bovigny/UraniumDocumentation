@@ -1,0 +1,48 @@
+
+- include_vars: group_vars/munge
+- include_vars: group_vars/slurm
+
+
+
+
+# Add munge
+- name: add munge group
+  group: name={{ mungegroupname }} gid={{ mungegid }} state=present
+  tags: munge
+
+- name: add user munge
+  user: name={{ mungename }} group={{ mungegroupname }} comment="MUNGE Uid 'N' Gid Emporium" home=/var/lib/munge uid={{ mungeuid }} shell=/sbin/nologin state=present
+  tags: munge
+
+
+- name: Install munge library
+  yum: name={{ item }} state=present
+  with_items:
+   - epel-release
+   - munge
+   - munge-libs
+   - munge-devel
+  tags: munge
+
+- name: Make sure to set the correct ownership and mode on all nodes for munge directory
+  file: path={{ mungepathetc }} owner={{ mungename }} group={{ mungegroupname }} mode=0700 state=directory
+  tags: munge
+
+- name: Make sure to set the correct ownership and mode on all nodes for munge directory
+  file: path={{ mungepathvar }} owner={{ mungename }} group={{ mungegroupname }} mode=0700 state=directory
+  tags: munge
+
+- name: munge key is present
+  copy: src=munge.key dest=/etc/munge/munge.key owner={{ mungename }} group={{ mungegroupname }} mode=0400 force=yes
+  notify:
+  - munge is restarted
+  tags: munge
+
+- name: munge is started and enabled
+  service: name=munge state=started enabled=yes
+  tags: munge
+
+
+
+
+

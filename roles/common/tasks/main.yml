@@ -1,81 +1,54 @@
 ---
-# This role installs and sets up keepalived
-
-- set_fact: ip={{ ansible_all_ipv4_addresses }}
-
-- name: Install Ipmitool (Centos)
-  yum: name=ipmitool state=present
-  become: true
-  when: ansible_os_family == "RedHat"
-  tags: ipmitool
-  #gather_facts: True
+# This role installs and sets up memory limits to unlimited
 
 
-- debug: msg="System {{ inventory_hostname }} has uuid {{ ansible_product_uuid }}"
-
-- debug:
-    msg: "IP ADDRESS {{ ansible_all_ipv4_addresses }}"
-
-- set_fact: 
-   ServerIP: "{{ ansible_all_ipv4_addresses }}" 
-
-- set_fact: 
-       Y: '12'
-
-- debug: 
-    msg: "voici l ip {{ ip }} et la variable Y {{ ServerIP }}"
-
-- debug: 
-    msg: "{{ Y }}"
+- name: Push unlimited memory file (Centos)
+  template: src=limits.conf dest=/etc/security/limits.conf owner=root group=root
+  tags: rdma
 
 
-- name: Extract the last octet, increment it and store it
-  set_fact: octet={{ ansible_default_ipv4.address.split('.')[3] }}
-
-- debug: var=octet
-
-- name: set new ip
-  set_fact: nn=10.8.101.{{ octet }}
-
-#- name: Append the incremented octet to the first 3 octets
-#  set_fact: new_ip="{{ lan | regex_replace('(^.*\.).*$', '\\1') }}{{octet}}"
-
-- debug: var=nn
-
-- debug:
-    msg: "{{ octet }}"
-
-- name: set ip address
-  become: yes
-  become_user: root
-  #command: ipmitool lan set 1 ipaddr {{ nn }} 
-  #command: ipmitool lan set 1 netmask 255.255.255.0
-  command: "{{ item }}"
+- name: Install vim / net-tools / libselinux-python / libsemanage-python /bind-utils / wget / nano / bc
+  yum: name={{ item }} state=present
   with_items:
-    - ipmitool lan set 1 ipaddr {{ nn }}
-    - ipmitool lan set 1 netmask 255.255.255.0
-    - ipmitool lan set 1 defgw ipaddr 10.8.101.1
-    - ipmitool lan set 1 access on
-    - ipmitool user set name 3 admin
-    - ipmitool user set password 3 admin
-    - ipmitool channel setaccess 1 3 callin=on ipmi=on link=on privilege=4
-    - ipmitool user enable 3
+   - vim
+   - net-tools
+   - libselinux-python
+   - libsemanage-python
+   - bind-utils
+   - wget
+   - nano
+   - bc
+  tags: util
 
-- name: Ansible grep pattern with ignore_errors example
-  become: yes
-  become_user: root
-  shell: ipmitool lan print | grep "MAC Address"
-  register: grep_output
-  ignore_errors: true
 
-- debug:
-    var: grep_output.stdout_lines
+- name: check if /opt/{{ jdkversion }}.tar.gz exist
+  stat: path=/opt/{{ jdkversion }}.tar.gz
+  register: javaexist
+  tags: java
 
-- debug:
-    msg: "System {{ inventory_hostname }} has gateway {{ ansible_default_ipv4.gateway }}"
-  when: ansible_default_ipv4.gateway is defined
+- name: Download Java
+  get_url:
+    url: "{{jdkdownloadurl}}"
+    dest: "/opt"
+    headers: 'Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie; --no-check-certificate'     
+  when: not javaexist.stat.exists
+  tags: java
+  
+- name: untar {{ jdkversion }}.tar.gz
+  unarchive: src=/opt/{{ jdkversion }}.tar.gz dest=/opt remote_src=True
+  when: not javaexist.stat.exists
+  tags: java
 
-- name: Display all variables/facts known for a host
-  debug:
-    var: hostvars[inventory_hostname]
-    verbosity: 4
+- name: java | alternative
+  template: src=alternatives2.sh.j2 dest=/opt/alternatives.sh mode=755
+  tags: java
+
+- name: Java | alternative script run
+  command: /usr/bin/bash /opt/alternatives.sh
+  tags: java
+
+- name: push java.sh in /etc/profile.d/
+  template: src=java.sh.j2 dest=/etc/profile.d/java.sh
+  tags: java
+
+

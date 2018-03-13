@@ -1,0 +1,13 @@
+
+- include_vars: group_vars/slurm
+
+# Add Slurm
+- name: add slurm group
+  group: name={{ slurmgroupname }} gid={{ slurmgid }} state=present
+  tags: slurm
+
+- name: add user slurm
+  user: name={{ slurmname }} group={{ slurmgroupname }} comment="Slurm workload manager" home=/var/lib/{{ slurmname }} uid={{ slurmuid }} shell=/bin/bash state=present
+  tags: slurm
+
+

@@ -1,0 +1,19 @@
+[mysqld]
+datadir={{ pathmysql }}
+socket={{ pathmysql }}/mysql.sock
+max_allowed_packet=64M
+
+#user=mysql
+# Disabling symbolic-links is recommended to prevent assorted security risks
+symbolic-links=0
+port={{ mysql_port }}
+
+#[mysqld_safe]
+log-error=/var/log/mysqld.log
+pid-file=/var/run/mysqld/mysqld.pid
+innodb_buffer_pool_size = 25000M
+max_connections=1000
+
+[client]
+port=3306
+socket={{ pathmysql }}/mysql.sock

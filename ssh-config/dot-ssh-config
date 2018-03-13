@@ -1,0 +1,12 @@
+# Auto-generated $HOME/.ssh/config based on inventory files.
+#
+# = Usage =
+#
+# = How to add to your SSH config =
+# You can copy-paste the entries in this file into your own `~/.ssh/config` file, but make sure that the `IdentifyFile`
+# entries point to the correct SSH private key
+
+###
+### All Hosts
+###
+

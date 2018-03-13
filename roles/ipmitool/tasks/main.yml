@@ -60,6 +60,7 @@
     - ipmitool user set password 3 admin
     - ipmitool channel setaccess 1 3 callin=on ipmi=on link=on privilege=4
     - ipmitool user enable 3
+    - ipmitool user set password 2 calvin
 
 - name: Ansible grep pattern with ignore_errors example
   become: yes

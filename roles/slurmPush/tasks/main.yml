@@ -1,0 +1,19 @@
+- include_vars: group_vars/slurm
+- include_vars: group_vars/slurmPackages
+
+
+- name: Install utilies for Slurm Packaging
+  yum: name=rsync state=present
+
+- name: Copy Rsync
+  copy: src=/usr/bin/rsync dest=/usr/local/bin/
+
+
+- synchronize:
+    src: /home/uraniumadm/rpms/x86_64
+    dest: /tmp/rpms
+  delegate_to: "{{item}}"
+  with_items:
+    - "{{ slurmpackagesnode }}"
+  become: yes
+

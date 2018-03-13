@@ -1,0 +1,20 @@
+---
+# This playbook install MUNGE deploys Package SLURM into rpms and push all the rpms on every nodes.
+# Playbook Number 1 for SLURM installation
+#
+- name: apply common configuration to nodes group
+  hosts: nodetest
+  become: true
+  user: uraniumadm
+  become_user: root
+  roles:
+    - munge
+    - slurmPackages
+
+- name: Push slurmPackages everywhere
+  hosts: nodetest2
+  become: true
+  user: uraniumadm
+  become_user: root
+  roles:
+    - slurmPush

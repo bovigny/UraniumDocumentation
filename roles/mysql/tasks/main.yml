@@ -1,0 +1,50 @@
+---
+# This playbook will install MariaDB and create db user and give permissions.
+##Variables ##
+
+- name: Get YUM repository for MySQL
+  get_url:
+      url: {{ mysqldownloadurl }}
+      dest: /tmp/{{ mysqlversion }}
+
+- name: Install YUM repository for MySQL
+  shell: /bin/rpm -Uvh /tmp/{{ mysqlversion }}
+  register: yum_repo_return
+  failed_when: "'conflict' in yum_repo_return.stderr"
+
+- name: Install MySQL community server
+  yum: name=mysql-community-server state=present
+  
+- name: Launch MySQL service
+  service: name=mysqld state=started enabled=yes
+
+- name: Install required python MySQLdb lib to create databases and users
+  yum: name={{ item }} state=present
+  with_items:
+   - gcc-c++
+   - MySQL-python
+
+- name: Get temporary MySQL root password
+  shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
+  register: mysql_root_temp_password
+
+- name: Set the MySQL root password
+  shell: mysqladmin -uroot --password="{{ mysql_root_temp_password.stdout }}" password "{{ mysql_root_password }}"
+  register: mysql_admin_root_password_result 
+  failed_when: "'(using password: NO)' in mysql_admin_root_password_result.stderr"
+
+- name: create mysql directory for elsevier
+  file: path={{ pathmysql }} state=directory owner=mysql group=mysql mode=0775 
+
+- name: Create Mysql configuration file
+  template: src=my.cnf.j2 dest={{ pathmysql }}/my.cnf
+  notify:
+  - restart mysqld
+
+- name: Create Test Table MY_DATATABLE
+  mysql_db: login_user=root login_password={{ mysql_root_password }} name=MY_DATATABLE encoding=utf8 collation=utf8_bin
+
+- name: Create MY_DBA user in MySQL and grant privileges
+  mysql_user: login_user=root login_password={{ mysql_root_password }} user=MY_DBA password={{ mysql_root_password }} host='%' priv='MY_DATATABLE.*:ALL'
+
+

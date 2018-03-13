@@ -1,0 +1,9 @@
+
+- hosts: node-16.uranium.lan
+  become: no
+  tasks:
+    - name: Transfer file from ServerA to ServerB
+      synchronize:
+        src:
+        dest: /tmp/sync_folder
+      delegate_to: node-15.uranium.lan

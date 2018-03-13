@@ -1,0 +1,37 @@
+---
+# This role installs and sets up keepalived
+
+- set_fact: ip={{ ansible_all_ipv4_addresses }}
+
+
+
+- debug: msg="System {{ inventory_hostname }} has uuid {{ ansible_product_uuid }}"
+
+- debug:
+    msg: "IP ADDRESS {{ ansible_all_ipv4_addresses }}"
+
+- set_fact: 
+   ServerIP: "{{ ansible_all_ipv4_addresses }}" 
+
+- set_fact: 
+       Y: '12'
+
+- debug: 
+    msg: "voici l ip {{ ip }} et la variable Y {{ ServerIP }}"
+
+- debug: 
+    msg: "{{ Y }}"
+
+
+
+
+- name: Ansible grep pattern with ignore_errors example
+  become: yes
+  become_user: root
+  shell: cat /sys/class/net/ib0/address
+  register: grep_output
+  ignore_errors: true
+
+- debug:
+    var: grep_output.stdout_lines
+

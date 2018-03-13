@@ -1,0 +1,21 @@
+---
+
+#
+# This file is located here in order to access host_vars and group_vars folder at the root of the ansible project.
+#
+
+#
+# For every hosts in the inventory, ensure mgmt_ip is not found.
+# 
+- hosts: all
+  gather_facts: false
+
+  tasks:
+
+  - name: Ensure ip variable is set in host_vars
+    local_action: shell "echo {{ inventory_hostname }} does not have ip variable set. Please go in the dashboard set it in host_vars/{{ inventory_hostname }} file." && false 
+    when: (ip is not defined)
+
+  - name: Generate ssh-config/dot-ssh-config-host file for individual hosts
+    local_action: template src=ssh-config/templates/home-dir-dot-ssh/config-host.j2 dest=ssh-config/dot-ssh-config-host-{{ inventory_hostname }}
+

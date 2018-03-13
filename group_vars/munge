@@ -1,0 +1,6 @@
+mungegroupname: munge
+mungegid: 981
+mungename: munge
+mungeuid: 981
+mungepathetc: /etc/munge/
+mungepathvar: /var/log/munge/
