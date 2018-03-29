@@ -1,0 +1,2 @@
+mysql_root_password: toto1234
+slurm_manage_mysql_security: True

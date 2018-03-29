@@ -1,0 +1,34 @@
+- include_vars: group_vars/beegfs
+
+- name: Install yum install beegfs-meta
+  yum: name=beegfs-meta state=present
+  tags:
+    - meta
+
+- name: check if the directories {{ metadatadirectory }} already exist
+  file: path={{ metadatadirectory }} state=directory owner=root
+  tags: meta
+
+
+#- debug: msg={{ ansible_hostname[0:5] }}
+- debug: msg={{ ansible_hostname[5:8] }}
+#- debug: msg={{ ansible_hostname[8:11] }}
+- name: register number for metadata
+  set_fact: nn={{ ansible_hostname[5:8] }}
+
+- name: list contents of directory
+  command: ls {{ metadatadirectory }}
+  register: contents
+
+
+- name: The metadata service needs to know where it can store its data.
+  command: /opt/beegfs/sbin/beegfs-setup-meta -p {{ metadatadirectory }} -s {{ nn }} -m {{ managementnode }}
+  ignore_errors: True
+  when: contents.stdout == ""
+  notify:
+    - start bgfs-meta
+  tags: meta
+
+
+- name: Make sure a service is running
+  systemd: state=started name=beegfs-meta

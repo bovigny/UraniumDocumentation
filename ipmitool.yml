@@ -8,3 +8,32 @@
   become_user: root
   roles:
     - ipmitool
+
+# Openmpi
+#../configure --prefix=/opt/software/openmpi-3.0.0/build/ --with-slurm --with-pmi
+
+# FFTW3
+
+#./configure prefix=/opt/software/fftw3.3.7 --enable-openmp --enable-mpi --disable-fortran
+
+
+# GROMACS
+#tar -zxvf ../gromacs-5.0.6.tar.gz
+#cd gromacs-5.0.4
+#mkdir build-gmx
+#cd build-gmx
+#export MPICCDIR=/share/apps/openmpi/bin/
+#
+#cmake .. \
+#-DGMX_DOUBLE=OFF \
+#-DCMAKE_INSTALL_PREFIX=/share/apps/gmx-single-MPI-CUDA \
+#-DGMX_GPU=ON \
+#-DCUDA_TOOLKIT_ROOT_DIR=/share/apps/cuda/ \
+#-DGMX_MPI=ON \
+#-DCMAKE_CXX_COMPILER=g++ \
+#-DCMAKE_CXX_COMPILER=${MPICCDIR}mpicxx \
+#-DCMAKE_C_COMPILER=gcc \
+#-DCMAKE_C_COMPILER=${MPICCDIR}mpicc \
+#-DGMX_BUILD_OWN_FFTW=ON
+#make -j16
+#make install

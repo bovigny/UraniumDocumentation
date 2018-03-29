@@ -1,0 +1,15 @@
+- name: Install NFS SERVER Node
+  hosts: nfsserver
+  become: true
+  user: uraniumadm
+  become_user: root
+  roles:
+    - nfsserver
+
+- name: Install NFS CLIENT nodes
+  hosts: nfsclients
+  become: true
+  user: uraniumadm
+  become_user: root
+  roles:
+    - nfsclients

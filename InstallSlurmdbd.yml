@@ -1,0 +1,39 @@
+
+## Install Slurm
+#- name: Push slurmPackages everywhere
+#  hosts: nodedatabase
+#  become: true
+#  user: uraniumadm
+#  become_user: root
+#  roles:
+#    - munge
+#    - slurmPush
+#    - slurminstallrpms
+#    - slurmdbd
+#
+#- name: Install slurmNodes (compute)
+#  hosts: nodetest2
+#  become: true
+#  user: uraniumadm
+#  become_user: root
+#  vars:
+#    slurmd: "Activate"
+#  roles:
+#    - munge
+#    - slurmPush
+#    - slurminstallrpms
+#    - slurmd
+
+- name: Install Head Node
+  hosts: nodetesthead
+  become: true
+  user: uraniumadm
+  become_user: root
+  vars:
+    slurmctld: "Activate"
+  roles:
+    - munge
+    - slurmPush
+    - slurminstallrpms
+    - slurmd
+    - slurmAccount

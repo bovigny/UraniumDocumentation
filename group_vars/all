@@ -4,7 +4,7 @@ uraniumgroup: uranium
 
 # RPMS files tmp
 
-rmpfilestmp: /tmp/rpms
+rmpfilestmp: /tmp/rpms/x86_64
 
 # MySQL
 

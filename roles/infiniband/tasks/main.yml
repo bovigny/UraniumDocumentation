@@ -23,15 +23,54 @@
     msg: "{{ Y }}"
 
 
+- name: Stop and disable firewalld.
+  systemd:
+    name: firewalld
+    state: stopped
+    enabled: False
+
+- name: install the 'Infiniband tools' package group
+  yum: name="@Infiniband Support" state=present
+
+- name: install infiniband-diags perftest gperf
+  yum: name={{ item }} state=present
+  with_items:
+    - infiniband-diags
+    - perftest
+    - gperf
+    - net-tools
+    - rdma-core-devel
+    - libfabric
+    - libsysfs
+
+- name: Push unlimited memory file (Centos)
+  template: src=limits.conf dest=/etc/security/limits.conf owner=root group=root
 
 
-- name: Ansible grep pattern with ignore_errors example
-  become: yes
-  become_user: root
-  shell: cat /sys/class/net/ib0/address
-  register: grep_output
-  ignore_errors: true
+- name: ensure that rdma is activated
+  systemd: state=started name=rdma
 
-- debug:
-    var: grep_output.stdout_lines
+- name: Extract the last octet, increment it and store it
+  set_fact: octet={{ ansible_default_ipv4.address.split('.')[3] }}
+
+- name: set new ip
+  set_fact: ipaddresseinfiniband=10.8.102.{{ octet }}
+
+- name: Push ib0
+  template: src=ifcfg-ib0.j2 dest=/etc/sysconfig/network-scripts/ifcfg-ib0
+
+- name: restart networking interfaces of ib0
+  become: true
+  command: bash -c "ifdown ib0 && ifup ib0"
+
+
+#- name: Ansible grep pattern with ignore_errors example
+#  become: yes
+#  become_user: root
+#  shell: cat /sys/class/net/ib0/address
+#  register: grep_output
+#  ignore_errors: true
+#
+#- debug:
+#    var: grep_output.stdout_lines
 

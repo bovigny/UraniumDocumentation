@@ -1,0 +1,7 @@
+managementdirectory: /data/beegfs/beegfs_mgmtd
+metadatadirectory: /data/beegfs/beegfs_meta
+managementnode: node-40-IB.uranium.lan
+
+
+storagepath:
+  - { dev: /home/beegfsshared, uid: 1 }

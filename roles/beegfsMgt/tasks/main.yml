@@ -1,0 +1,25 @@
+- include_vars: group_vars/beegfs
+
+- name: Install beegfs-mgmtd
+  yum: name=beegfs-mgmtd state=present
+  tags:
+    - mgt
+
+- name: check if the directories {{ managementdirectory }} already exist
+  file: path={{ managementdirectory }} state=directory owner=root
+  tags: mgt
+
+- name: list contents of directory
+  command: ls {{ managementdirectory }}
+  register: contents
+
+- name: The management service needs to know where it can store its data.
+  command: /opt/beegfs/sbin/beegfs-setup-mgmtd -p {{ managementdirectory }}
+  ignore_errors: True
+  when:  contents.stdout == ""
+  notify:
+      - start beegfs-mgmtd
+  tags: mgt
+
+- name: Make sure a service is running
+  systemd: state=started name=beegfs-mgmtd

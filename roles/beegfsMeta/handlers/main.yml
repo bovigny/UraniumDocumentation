@@ -1,0 +1,3 @@
+---
+- name: start beegfs-meta
+  service: name=beegfs-meta state=started

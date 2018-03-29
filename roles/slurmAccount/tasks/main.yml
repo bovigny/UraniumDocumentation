@@ -1,0 +1,5 @@
+- include_vars: group_vars/slurm
+
+- name: Add clustername {{ clustername }}
+  command: echo Y |  /bin/sacctmgr add cluster {{ clustername }}
+

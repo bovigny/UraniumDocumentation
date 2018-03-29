@@ -1,0 +1,10 @@
+{% if ldap == "false" %}
+{{ pathtoshare }} *(rw,async,insecure,no_root_squash)
+{% elif ldap == "both" %}
+{{ pathtoshare }} *(rw,async,insecure,no_root_squash)
+{% endif %}
+{% if ldap == "true" %}
+{{ pathtosharehome }} *(rw,sync,no_root_squash)
+{% elif ldap == "both" %}
+{{ pathtosharehome }} *(rw,sync,no_root_squash)
+{% endif %}

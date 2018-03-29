@@ -1,0 +1,22 @@
+dn: uid=uraniumadm,ou=People,dc=uranium,dc=lan
+uid: uraniumadm
+cn: Admin Uranium User
+givenName: Admin Uranium
+sn: User
+mail: uraniumadm@uranium.lan
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+objectClass: shadowAccount
+userPassword: {crypt}$5$I0r8K0UL$VczpMrsuMLHSCHf/8DTSA5DOUjW9xs06uATFCHN8p74
+shadowLastChange: 17584
+shadowMin: 0
+shadowMax: 99999
+shadowWarning: 7
+loginShell: /bin/bash
+uidNumber: 1200
+gidNumber: 1200
+homeDirectory: /home/uraniumadm
+gecos: Admin Uranium User

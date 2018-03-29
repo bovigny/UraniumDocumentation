@@ -2,7 +2,8 @@
 # This playbook deploys the whole application stack in this site.  
 
 - name: apply common configuration to nodes group
-  hosts: nodes
+  hosts: infiniband
+  become: true
   user: uraniumadm
   become_user: root
   roles:

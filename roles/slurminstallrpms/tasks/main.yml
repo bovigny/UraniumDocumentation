@@ -1,0 +1,59 @@
+
+- include_vars: group_vars/slurm
+- include_vars: group_vars/slurmPackages
+
+
+
+- name: Install utilies for Slurm Packaging
+  yum: name={{ item }} state=present
+  with_items:
+     - rsync
+     - epel-release
+     - rpm-build
+     - gcc
+     - openssl
+     - openssl-devel
+     - libssh2-devel
+     - pam-devel
+     - numactl
+     - numactl-devel
+     - hwloc
+     - hwloc-devel
+     - lua
+     - lua-devel
+     - readline-devel
+     - rrdtool-devel
+     - ncurses-devel
+     - gtk2-devel
+     - man2html
+     - libibmad
+     - libibumad
+     - perl-Switch
+     - perl-ExtUtils-MakeMaker
+  tags: slurmpackages
+
+- name: Install slurm rpms
+  yum: name={{ item }} state=present
+  with_items:
+   - "{{ rmpfilestmp }}/slurm-{{ slurmversionmodif }}.el7.centos.x86_64.rpm"
+   - "{{ rmpfilestmp }}/slurm-devel-{{ slurmversionmodif }}.el7.centos.x86_64.rpm"
+   - "{{ rmpfilestmp }}/slurm-perlapi-{{ slurmversionmodif }}.el7.centos.x86_64.rpm"
+   - "{{ rmpfilestmp }}/slurm-torque-{{ slurmversionmodif }}.el7.centos.x86_64.rpm"
+   - "{{ rmpfilestmp }}/slurm-pam_slurm-{{ slurmversionmodif }}.el7.centos.x86_64.rpm"
+   - "{{ rmpfilestmp }}/slurm-contribs-{{ slurmversionmodif }}.el7.centos.x86_64.rpm"
+   - "{{ rmpfilestmp }}/slurm-example-configs-{{ slurmversionmodif }}.el7.centos.x86_64.rpm"
+   - "{{ rmpfilestmp }}/slurm-libpmi-{{ slurmversionmodif }}.el7.centos.x86_64.rpm"
+  tags: slurminstallrpm
+
+- name: Install slurmctld
+  yum: name="{{ rmpfilestmp }}/slurm-slurmctld-{{ slurmversionmodif }}.el7.centos.x86_64.rpm"
+  #yum: name="{{ rmpfilestmp }}/slurm-slurmd-{{ slurmversionmodif }}.el7.centos.x86_64.rpm"
+  when: slurmctld is defined
+
+- name: create /var/spool/slurm
+  file: path=/var/spool/slurm state=directory owner={{ slurmname }} mode=0755
+  when: slurmctld is defined
+
+- name: Install slurmd
+  yum: name="{{ rmpfilestmp }}/slurm-slurmd-{{ slurmversionmodif }}.el7.centos.x86_64.rpm"
+  when: slurmd is defined

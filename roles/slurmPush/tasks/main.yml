@@ -5,15 +5,28 @@
 - name: Install utilies for Slurm Packaging
   yum: name=rsync state=present
 
-- name: Copy Rsync
-  copy: src=/usr/bin/rsync dest=/usr/local/bin/
+- name: rsync link
+  file: src=/usr/bin/rsync dest=/usr/local/bin/rsync state=link
+#- name: Copy Rsync
+#  copy: src=/usr/bin/rsync dest=/usr/local/bin/ owner=root group=root mode=0777
+#- name: link rsync
+#  shell: ln -s /usr/bin/rsync  /usr/local/bin/rsync
+#  become: yes
+#- name: chmod rsync
+#  shell: chmod 755  /usr/local/bin/rsync
+#  become: yes
 
+- debug: msg={{ ansible_hostname }}
 
 - synchronize:
     src: /home/uraniumadm/rpms/x86_64
     dest: /tmp/rpms
+    recursive: yes
   delegate_to: "{{item}}"
   with_items:
     - "{{ slurmpackagesnode }}"
   become: yes
+
+
+
 

@@ -1,0 +1,9 @@
+
+# Install Slurm
+- name: Push slurmPackages everywhere
+  hosts: nodetest2
+  become: true
+  user: uraniumadm
+  become_user: root
+  roles:
+    - slurminstallrpms

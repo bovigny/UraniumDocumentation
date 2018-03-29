@@ -1,0 +1,19 @@
+dn: dc={{ domainldap }},dc={{ suffixdomainldap }}
+objectClass: top
+objectClass: dcObject
+objectclass: organization
+o: {{ domainldap }} {{ suffixdomainldap }}
+dc: {{ domainldap }}
+
+dn: cn=Manager,dc={{ domainldap }},dc={{ suffixdomainldap }}
+objectClass: organizationalRole
+cn: Manager
+description: Directory Manager
+
+dn: ou=People,dc={{ domainldap }},dc={{ suffixdomainldap }}
+objectClass: organizationalUnit
+ou: People
+
+dn: ou=Group,dc={{ domainldap }},dc={{ suffixdomainldap }}
+objectClass: organizationalUnit
+ou: Group

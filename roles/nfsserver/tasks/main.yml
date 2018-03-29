@@ -1,0 +1,60 @@
+- include_vars: group_vars/nfsserver
+
+
+- name: create directory to share
+  file: path={{ pathtoshare }} state=directory owner=root group=root mode=0777
+  when: ldap == "false" or ldap == "both"
+  tags:
+    - nfsserver
+
+- name: install nfs-utils
+  yum: name=nfs-utils state=present
+  tags:
+    - nfsserver
+
+- name: push exports
+  template: src=exports.j2 dest=/etc/exports owner=root group=root
+  tags:
+    - nfsserver
+
+- name: modprobe svcrdma
+  shell: /usr/sbin/modprobe svcrdma
+  tags:
+    - nfsserver
+
+
+#- name: push rdma port for nfs
+#  shell: /usr/bin/echo rdma 20049 > /proc/fs/nfsd/portlist
+#  tags:
+#    - nfsserver
+
+
+#- name: Check whether /proc/fs/nfsd/portlist   contains "rdma 20049"
+#  shell: /bin/grep -Fxq "rdma 20049" /proc/fs/nfsd/portlist
+#  register: checkmyconf
+#  tags: nfsserver
+
+- name: Check whether /proc/fs/nfsd/portlist   contains "rdma 20049"
+  shell: /bin/grep 'rdma 20049' /proc/fs/nfsd/portlist | wc -l
+  register: has_inetd_daytime
+
+- name: Update rdma 20049 into /proc/fs/nfsd/portlist
+  shell: /usr/bin/echo rdma 20049 > /proc/fs/nfsd/portlist
+  when: has_inetd_daytime.stdout == 0
+
+#- name: push rdma port for nfs
+#  shell: /usr/bin/echo rdma 20049 > /proc/fs/nfsd/portlist
+#  when: checkmyconf.rc == 1
+#  tags:
+#    - nfsserver
+
+#- name: push rdma port for nfs
+#  become: true
+#  become_user: root
+#  lineinfile: path=/proc/fs/nfsd/portlist line='rdma 20049' insertbefore=BOF state=present
+
+
+- name: Make sure a service is running
+  systemd: state=started name=nfs-server
+
+

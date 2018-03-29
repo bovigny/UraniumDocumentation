@@ -11,3 +11,19 @@
   tags: slurm
 
 
+- name: push slurm.conf
+  template: src=slurm.conf.j2 dest=/etc/slurm/slurm.conf
+
+- name: create /var/spool/slurmd
+  file: path=/var/spool/slurmd state=directory owner={{ slurmname }} mode=0755
+
+- name: create /var/spool/slurmd
+  template: src=cgroup.conf dest=/etc/slurm/cgroup.conf
+
+- name: ensure that slurmd is started
+  systemd: name=slurmd state=started
+  when: slurmd is defined
+
+- name: ensure that slurmd is started
+  systemd: name=slurmctld state=started
+  when: slurmctld is defined

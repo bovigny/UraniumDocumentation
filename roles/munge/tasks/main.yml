@@ -32,14 +32,26 @@
   file: path={{ mungepathvar }} owner={{ mungename }} group={{ mungegroupname }} mode=0700 state=directory
   tags: munge
 
+- name: Make sure to set the correct ownership and mode on all nodes for munge directory
+  file: path=/var/log/munge owner={{ mungename }} group={{ mungegroupname }} mode=0700 state=directory
+  tags: munge
+
 - name: munge key is present
   copy: src=munge.key dest=/etc/munge/munge.key owner={{ mungename }} group={{ mungegroupname }} mode=0400 force=yes
   notify:
   - munge is restarted
   tags: munge
 
+- name: remove munge
+  yum: name=munge state=removed
+  tags: munge
+
+- name: install latest munge
+  yum: name=munge state=present
+  tags: munge
+
 - name: munge is started and enabled
-  service: name=munge state=started enabled=yes
+  systemd: name=munge state=started enabled=yes
   tags: munge
 
 

@@ -1,0 +1,3 @@
+---
+- name: start beegfs-mgmtd
+  service: name=beegfs-mgmtd state=started

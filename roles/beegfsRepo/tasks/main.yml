@@ -1,0 +1,5 @@
+
+- name: Push Repo beegfs
+  copy: src=beegfs-rhel7.repo dest=/etc/yum.repos.d/beegfs-rhel7.repo owner=root group=root
+  tags: everywhere
+

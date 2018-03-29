@@ -1,0 +1,43 @@
+
+#- name: Add BeeGFS Repo
+#  hosts: beegfs-Repo-RH7
+#  become: true
+#  user: uraniumadm
+#  become_user: root
+#  include_roles:
+#    - {role: beegfs, tags: [ 'everywhere ']}
+#  tags: everywhereplay
+
+
+
+- name: installbeegfs Management Node
+  hosts: beegfs-Management-Server
+  become: true
+  user: uraniumadm
+  become_user: root
+  roles:
+    - {role: beegfsMgt}
+
+- name: installbeegfs Meta Node
+  hosts: beegfs-Metadata-Server
+  become: true
+  user: uraniumadm
+  become_user: root
+  roles:
+    - {role: beegfsMeta}
+
+- name: installbeegfs Storage Node
+  hosts: beegfs-Storage-Server
+  become: true
+  user: uraniumadm
+  become_user: root
+  roles:
+    - {role: beegfsStorage}
+
+- name: installbeegfs Client Node
+  hosts: beegfs-Client
+  become: true
+  user: uraniumadm
+  become_user: root
+  roles:
+    - {role: beegfsClient}

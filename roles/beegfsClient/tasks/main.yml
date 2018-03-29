@@ -1,0 +1,92 @@
+- name: Install yum install beegfs-client / beegfs-helperd / beegfs-utils / kernel / kernel-devel / kernel-tools / kernel-tools-libs-devel
+  yum: name={{ item }} state=present
+  with_items:
+    - beegfs-client
+    - beegfs-helperd
+    - beegfs-utils
+    - kernel
+    - kernel-devel
+    - kernel-tools
+    - kernel-tools-libs-devel
+    - gcc
+    - gcc-c++
+    - glibc-headers
+    - glibc-devel
+  tags:
+    - client
+
+- name: Push files beegfs-client-autobuild.conf
+  template: src=beegfs-client-autobuild.conf.j2 dest=/etc/beegfs/beegfs-client-autobuild.conf owner=root group=root mode=0700
+  tags:
+    - client
+
+- name: Push files beegfs-client-rebuild.sh
+  template: src=beegfs-client-rebuild.sh.j2 dest=/etc/init.d/beegfs-client-rebuild.sh owner=root group=root mode=0755
+  tags:
+    - client
+
+- name: get the last kernel /usr/src/kernels
+  shell: /usr/bin/ls -1h /usr/src/kernels/ | /usr/bin/tail -n1
+  register: resultkernel
+  ignore_errors: True
+
+- name: get the last kernel /usr/src/kernels
+  shell: /usr/bin/ls -1h /usr/src/kernels/ | /usr/bin/tail -n2 | grep -v debug
+  register: resultkernelnodebug
+
+- name: get the last kernel /lib/modules/
+  shell: /usr/bin/ls -1h /lib/modules | /usr/bin/tail -n1
+  register: resultkernelusrlib
+  ignore_errors: True
+
+- name: get Actual Kernel
+  shell: /bin/uname -r
+  register: actualkernel
+
+
+- name: update all and restart if not actual kernel
+  yum: name=kernel state=latest
+  when: "not actualkernel.stdout == resultkernelnodebug.stdout_lines[0]"
+
+- name: reboot the machine
+  shell: reboot
+  when: "not actualkernel.stdout == resultkernelnodebug.stdout_lines[0]"
+
+#- debug: msg={{ resultkernel }}
+#- debug: msg={{ resultkernelusrlib }}
+
+
+#- name: link kernel devel /usr/src/kernels/{{ resultkernel.stdout_lines[0] }} /lib/modules/{{ resultkernelusrlib.stdout_lines[0] }}/build
+  #command: ln -s  /usr/src/kernels/3.10.0-693.21.1.el7.x86_64 /lib/modules/3.10.0-693.el7.x86_64/build
+#  file: src=/usr/src/kernels/{{ resultkernel.stdout_lines[0] }} dest=/lib/modules/{{ resultkernelusrlib.stdout_lines[0] }}/build  state=link
+
+#- name: Force a rebuild on the client
+#  command: /etc/init.d/beegfs-client-rebuild.sh
+#  register: outputrebuild
+#  failed_when: "not outputrebuild.stdout_lines[2] == 'Building beegfs client module'"
+#  tags:
+#    - client
+
+- name: Force a rebuild on the client
+  command: /etc/init.d/beegfs-client rebuild
+  register: outputrebuild
+  failed_when: "not outputrebuild.stdout_lines[1] == 'Building beegfs client module'"
+  tags:
+    - client
+
+- name: The Client.
+  command: /opt/beegfs/sbin/beegfs-setup-client -m {{ managementnode }}
+  ignore_errors: True
+  tags: client
+
+- name: Make sure a service is running
+  systemd: state=started name=beegfs-client
+
+- name: Make sure a service is running
+  systemd: state=started name=beegfs-helperd
+
+
+#beegfs-ctl --listnodes --nodetype=meta --details
+#beegfs-ctl --listnodes --nodetype=storage --details
+#beegfs-ctl --listnodes --nodetype=client --details
+#beegfs-net

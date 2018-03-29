@@ -1,0 +1,8 @@
+openldap_server_rootpw: toto1234
+domainldap: uranium
+suffixdomainldap: lan
+
+slapd_ldap_schema:
+    - '/etc/openldap/schema/nis.ldif'
+    - '/etc/openldap/schema/inetorgperson.ldif'
+    - '/etc/openldap/schema/cosine.ldif'

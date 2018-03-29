@@ -1,0 +1,39 @@
+ClusterName={{ clustername }}
+ControlMachine={{ headnode }}
+ControlAddr={{ headnodeaddr }}
+AuthType=auth/munge
+CryptoType=crypto/munge
+MpiDefault=pmi2
+ProctrackType=proctrack/cgroup
+ReturnToService=1
+SlurmctldPidFile=/var/run/slurmctld.pid
+SlurmctldPort=6817
+SlurmdPidFile=/var/run/slurmd.pid
+SlurmdPort=6818
+SlurmdSpoolDir=/var/spool/slurmd
+SlurmUser=slurm
+StateSaveLocation=/var/spool/slurm
+SwitchType=switch/none
+TaskPlugin=task/none
+InactiveLimit=0
+KillWait=30
+MinJobAge=300
+SlurmctldTimeout=120
+SlurmdTimeout=300
+Waittime=0
+FastSchedule=1
+SchedulerType=sched/backfill
+SelectType=select/linear
+PriorityDecayHalfLife=0
+PriorityUsageResetPeriod=NONE
+AccountingStorageHost={{ databasenode }}
+AccountingStorageType=accounting_storage/slurmdbd
+AccountingStoreJobComment=YES
+JobCompType=jobcomp/none
+JobAcctGatherFrequency=30
+JobAcctGatherType=jobacct_gather/linux
+
+SlurmctldDebug=3
+SlurmdDebug=3
+NodeName=node-[16-18] Sockets=2 CoresPerSocket=4 ThreadsPerCore=2 Feature=HyperThread
+PartitionName=debug Nodes=node-[16-18] Default=YES MaxTime=INFINITE State=UP

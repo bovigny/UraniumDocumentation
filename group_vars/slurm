@@ -2,3 +2,8 @@ slurmgroupname: slurm
 slurmgid: 982
 slurmname: slurm
 slurmuid: 982
+
+clustername: uranium
+headnode: node-15.uranium.lan
+headnodeaddr: 10.8.100.25
+databasenode: node-19.uranium.lan

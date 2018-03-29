@@ -1,0 +1,24 @@
+#!/bin/bash
+LAST_KERNEL="$(ls -1h /lib/modules | tail -n1)"
+KERNEL="${1:-$LAST_KERNEL}"
+
+function finish {
+    mv /opt/beegfs/src/client/beegfs_client_module_6/build/Makefile{.bak,}
+    mv /etc/beegfs/beegfs-client-autobuild.conf{.bak,}
+}
+
+trap finish EXIT
+
+echo "Using: ${KERNEL}"
+cp /etc/beegfs/beegfs-client-autobuild.conf{,.bak}
+cp /opt/beegfs/src/client/beegfs_client_module_6/build/Makefile{,.bak}
+
+sed -i \
+    -e '/^buildArgs=.*$/ s|$| KDIR="/lib/modules/'${KERNEL}'/build /usr/src/linux-headers-'${KERNEL}'"|g' \
+    -e 's|buildEnabled=.*|buildEnabled=true|g' \
+     /etc/beegfs/beegfs-client-autobuild.conf
+
+sed -i '/depmod/ s|^|#|g' /opt/beegfs/src/client/beegfs_client_module_6/build/Makefile
+
+/etc/init.d/beegfs-client rebuild
+depmod ${KERNEL}

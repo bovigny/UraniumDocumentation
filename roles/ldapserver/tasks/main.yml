@@ -1,0 +1,107 @@
+
+# http://www.learnitguide.net/2016/01/configure-openldap-server-on-rhel7.html
+
+- include_vars: group_vars/ldap
+
+- name: install ldap packages
+  yum: name={{ item }} state=present
+  with_items:
+    - openldap-servers
+    - cyrus-sasl
+    - cyrus-sasl-devel
+    - unixODBC
+    - openldap-servers-sql
+    - openldap-devel
+    - migrationtools
+    - openldap-clients
+  tags: ldapserver
+
+- name: Generate the root password for ldap
+  shell: slappasswd -s {{ openldap_server_rootpw }}
+  register: open_root_password
+
+- name: Push oclDatabase file
+  template: src=olcDatabase.ldif.j2 dest=/etc/openldap/slapd.d/cn=config/olcDatabase={2}hdb.ldif
+  tags: ldapserver
+
+- name: Push oclDatabase file
+  template: src=olcDatabase={1}monitor.ldif.j2 dest=/etc/openldap/slapd.d/cn=config/olcDatabase={1}monitor.ldif
+  tags: ldapserver
+
+- name: ensure the service is started
+  systemd: state=started name=slapd enabled=yes
+
+- name: Push DB_CONFIG.j2
+  template: src=DB_CONFIG.j2 dest=/var/lib/ldap/DB_CONFIG owner=ldap group=ldap
+  tags: ldapserver
+
+#- name: Add SCHEMA
+#  shell:  ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/cosine.ldif
+#  tags: ldapserver
+#
+#- name: Add SCHEMA
+#  shell:  ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/nis.ldif
+#  tags: ldapserver
+#
+#
+#
+#- name: Add SCHEMA
+#  shell:  ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif
+#  tags: ldapserver
+
+
+- name: Load custom LDAP schema files
+  command: ldapadd -Y EXTERNAL -H ldapi:/// -f {{ item }}
+  with_items: "{{ slapd_ldap_schema }}"
+  register: slapd_register_load_schema
+  when: slapd_ldap_schema is defined and slapd_ldap_schema
+  ignore_errors: true
+  #changed_when: slapd_register_load_schema.stdout != "adding new entry"
+
+- name: Push Private Key
+  template: src=uraniumldapkey.pem.j2 dest=/etc/pki/tls/certs/uraniumldapkey.pem owner=root group=root mode=0644
+  tags: ldapserver
+
+- name: Push Public Key
+  template: src=uraniumldap.pem.j2 dest=/etc/pki/tls/certs/uraniumldap.pem owner=root group=root mode=0644
+  tags: ldapserver
+
+- name: Push migrate_common.ph
+  template: src=migrate_common.ph.j2 dest=/usr/share/migrationtools/migrate_common.ph owner=root group=root mode=0644
+  tags: ldapserver
+
+
+
+- name: Push base.ldif
+  template: src=root.ldif.j2 dest=/root/base.ldif owner=root group=root mode=0644
+  tags: ldapserver
+
+- name: Push uraniumuser.ldif
+  template: src=uraniumuser.ldif dest=/root/uraniumuser.ldif owner=root group=root mode=0644
+  tags: ldapserver
+
+- name: Push groupuranium.ldif
+  template: src=groupuranium.ldif dest=/root/groupuranium.ldif owner=root group=root mode=0644
+  tags: ldapserver
+
+- name: Add base
+  shell:  /bin/ldapadd -x -w {{ openldap_server_rootpw }} -D "cn=Manager,dc={{ domainldap }},dc={{ suffixdomainldap }}" -f /root/base.ldif
+  tags: ldapserver
+  ignore_errors: true
+
+- name: Add uraniumuser
+  shell:  /bin/ldapadd -x -w {{ openldap_server_rootpw }} -D "cn=Manager,dc={{ domainldap }},dc={{ suffixdomainldap }}" -f /root/uraniumuser.ldif
+  tags: ldapserver
+  ignore_errors: true
+
+- name: add uranium group
+  shell:  /bin/ldapadd -x -w {{ openldap_server_rootpw }} -D "cn=Manager,dc={{ domainldap }},dc={{ suffixdomainldap }}" -f /root/groupuranium.ldif
+  tags: ldapserver
+  ignore_errors: true
+
+  #POUR LE CLIENT
+  #https://www.itzgeek.com/how-tos/linux/centos-how-tos/step-step-openldap-server-configuration-centos-7-rhel-7.html/2
+
+  #authconfig --enableldap --enableldapauth --ldapserver=10.8.102.40 --ldapbasedn="dc=uranium,dc=lan" --update
+
+#systemctl restart  nslcd

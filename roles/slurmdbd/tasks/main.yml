@@ -1,0 +1,88 @@
+
+- include_vars: group_vars/slurmdbd
+- include_vars: group_vars/slurm
+
+# Add Slurm
+- name: add slurm group
+  group: name={{ slurmgroupname }} gid={{ slurmgid }} state=present
+  tags: slurm
+
+- name: add user slurm
+  user: name={{ slurmname }} group={{ slurmgroupname }} comment="Slurm workload manager" home=/var/lib/{{ slurmname }} uid={{ slurmuid }} shell=/bin/bash state=present
+  tags: slurm
+
+
+
+- name: Install slurm rpms
+  yum: name={{ item }} state=present
+  with_items:
+   - MySQL-python
+   - mariadb-server
+   - mariadb-devel
+   - "{{ rmpfilestmp }}/slurm-slurmdbd-{{ slurmversionmodif }}.el7.centos.x86_64.rpm"
+  tags: slurminstallrpm
+
+
+
+
+- name: Add .my.cnf
+  template: src=my.cnf.j2 dest=/root/.my.cnf owner=root group=root mode=0600
+
+- name: Start and enable service
+  service: name=mariadb state=started enabled=yes
+
+- name: Set root Password
+  mysql_user: login_password={{ mysql_root_password }} check_implicit_admin=yes name=root host={{ item }} password={{ mysql_root_password }} state=present
+  with_items:
+    - localhost
+    - 127.0.0.1
+    - ::1
+    - "{{ inventory_hostname }}"
+
+
+- name: create slurm acct db
+  mysql_db: name=slurm_acct_db state=present
+  when: slurm_manage_mysql_security
+
+- name: create slurm sql user
+  mysql_user:
+    name: slurm
+    state: present
+    password: "{{ mysql_root_password }}"
+  register: mysqlslurmuser
+  ignore_errors: yes
+  tags: debug
+
+- name: print mysqlslurmuser
+  debug: var=mysqlslurmuser verbosity=1
+  tags: debug
+  changed_when: False
+
+- name: ensure slurm sql user has a password and privileges if it does not exist or if it was just added
+  mysql_user:
+    name: slurm
+    password: "{{  mysql_root_password }}"
+    priv: "slurm_acct_db.*:ALL"
+    state: present
+    update_password: always
+
+
+- name: Creates directory /etc/slurm
+  file: path=/etc/slurm state=directory owner=root
+
+- name: template in slurmdbd.conf
+  template:
+    src: slurmdbd.conf.j2
+    dest: /etc/slurm/slurmdbd.conf
+    owner: root
+    mode: 0640
+    backup: yes
+  notify:
+    - start slurmdbd
+
+- name: ensure that slurmdbd is started
+  service: name=slurmdbd state=started
+
+
+
+

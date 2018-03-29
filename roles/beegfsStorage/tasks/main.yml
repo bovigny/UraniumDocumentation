@@ -1,0 +1,32 @@
+- include_vars: group_vars/beegfs
+
+- name: Install yum install storage
+  yum: name=beegfs-storage state=present
+  tags:
+    - storage
+
+- name: register number for storage
+  set_fact: nn={{ ansible_hostname[5:8] }}
+
+- debug: msg={{ storagepath[0] }}
+
+
+- debug: msg={{ item.dev }}
+  with_items: "{{ storagepath }}"
+
+
+- name: list contents of directory storage
+  command: ls {{ item.dev }}
+  register: contents
+  with_items: "{{ storagepath }}"
+
+
+- name: Add storages on the storage node
+  command: /opt/beegfs/sbin/beegfs-setup-storage -p {{ item.0.dev }} -s {{ nn }} -i {{ nn }}{{ item.0.uid }} -m {{ managementnode }}
+  with_nested:
+  - "{{ storagepath }}"
+  - "{{ contents.results }}"
+  when: item.1.stdout == ""
+
+- name: Make sure a service is running
+  systemd: state=started name=beegfs-storage

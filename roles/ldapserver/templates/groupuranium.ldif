@@ -1,0 +1,7 @@
+dn: cn=uranium,ou=Group,dc={{ domainldap }},dc={{ suffixdomainldap }}
+objectClass: posixGroup
+objectClass: top
+cn: uranium
+userPassword: {crypt}x
+gidNumber: 1200
+memberUid: uraniumadm

@@ -1,0 +1,56 @@
+- include_vars: group_vars/nfsserver
+
+#- name: create directory to share
+#  file: path={{ pathtoshare }} state=directory owner=root group=root mode=0777
+#  tags:
+#    - nfsserver
+
+- name: install nfs-utils
+  yum: name=nfs-utils state=present
+  tags:
+    - nfsclient
+
+- name: modprobe xprtrdma
+  shell: /usr/sbin/modprobe xprtrdma
+  tags:
+    - nfsclient
+
+- name: create directory /opt/software
+  file: path=/opt/software state=directory owner=root group=root mode=0777
+  when: ldap == "false" or ldap == "both"
+  tags:
+    - nfsclient
+
+- name: mount -o rdma,port=20049 {{ ipnfsserver }}:{{ pathtoshare }} /opt/software
+  shell: mount -o rdma,port=20049 {{ ipnfsserver }}:{{ pathtoshare }} /opt/software
+  when: ldap == "false" or ldap == "both"
+  ignore_errors: true
+
+- name: mount -o rdma,port=20049 {{ ipnfsserverldap }}:{{ pathtosharehome }} /home
+  shell: mount -o rdma,port=20049 {{ ipnfsserverldap }}:{{ pathtosharehome }} /home
+  when: ldap == "true" or ldap == "both"
+  ignore_errors: true
+
+
+- name: install ldap packages client
+  yum: name={{ item }} state=present
+  with_items:
+    - openldap-clients
+    - nss-pam-ldapd
+  when: ldap == "true" or ldap == "both"
+  tags: ldapserver
+
+- name: authconfig --enableldap --enableldapauth --ldapserver={{ ipnfsserverldap }} --ldapbasedn="dc=uranium,dc=lan" --update
+  shell: authconfig --enableldap --enableldapauth --ldapserver={{ ipnfsserverldap }} --ldapbasedn="dc=uranium,dc=lan" --update
+  when: ldap == "true" or ldap == "both"
+
+- name: Make sure a service is running
+  systemd: state=restarted name=nslcd
+  when: ldap == "true" or ldap == "both"
+
+
+#  To check throughput/latency of the NFS over RDMA, fio can be used (or any similar test). For example
+# fio --rw=randread --bs=64k --numjobs=4 --iodepth=8 --runtime=30 --time_based --loops=1 --ioengine=libaio --direct=1 --invalidate=1 --fsync_on_close=1 --randrepeat=1 --norandommap --exitall --name task1 --filename=/mnt/my_directory/1.txt --size=10000000
+
+# When testing NFS and changing the configuration file under /etc/exports, you need to export this file by using the command "exportfs -a" (The exportfs command maintains the current table of exports for the NFS server).
+# exportfs -a

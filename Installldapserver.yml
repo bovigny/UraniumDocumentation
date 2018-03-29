@@ -1,0 +1,47 @@
+
+## Install Slurm
+#- name: Push slurmPackages everywhere
+#  hosts: nodedatabase
+#  become: true
+#  user: uraniumadm
+#  become_user: root
+#  roles:
+#    - munge
+#    - slurmPush
+#    - slurminstallrpms
+#    - slurmdbd
+#
+#- name: Install slurmNodes (compute)
+#  hosts: nodetest2
+#  become: true
+#  user: uraniumadm
+#  become_user: root
+#  vars:
+#    slurmd: "Activate"
+#  roles:
+#    - munge
+#    - slurmPush
+#    - slurminstallrpms
+#    - slurmd
+
+# LDAP VARIABLE HAS TO BE INSTANTIATE: ldap: "true", ldap: "false"; ldap: "both"
+- name: Install Head Node
+  hosts: ldapserver
+  become: true
+  user: uraniumadm
+  become_user: root
+  vars:
+    ldap: "true"
+  roles:
+    - ldapserver
+    - nfsserver
+
+- name: Install Head Node
+  hosts: nfsclients
+  become: true
+  user: uraniumadm
+  become_user: root
+  vars:
+    ldap: "both"
+  roles:
+    - nfsclients
