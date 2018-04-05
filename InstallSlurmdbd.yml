@@ -11,18 +11,28 @@
 #    - slurminstallrpms
 #    - slurmdbd
 #
-#- name: Install slurmNodes (compute)
-#  hosts: nodetest2
-#  become: true
-#  user: uraniumadm
-#  become_user: root
-#  vars:
-#    slurmd: "Activate"
-#  roles:
-#    - munge
-#    - slurmPush
-#    - slurminstallrpms
-#    - slurmd
+
+
+- name: Install slurmNodes (compute)
+  hosts: slurmpackages
+  become: true
+  user: uraniumadm
+  become_user: root
+  roles:
+    - slurmPackages
+
+- name: Install slurmNodes (compute)
+  hosts: nodetest2
+  become: true
+  user: uraniumadm
+  become_user: root
+  vars:
+    slurmd: "Activate"
+  roles:
+    - munge
+    - slurmPush
+    - slurminstallrpms
+    - slurmd
 
 - name: Install Head Node
   hosts: nodetesthead

@@ -10,7 +10,9 @@
     - ipmitool
 
 # Openmpi
-#../configure --prefix=/opt/software/openmpi-3.0.0/build/ --with-slurm --with-pmi
+#yum install infiniband-diags libibcommon libibmad libibumad
+#yum install libpsm2 libpsm2-compat libpsm2-devel
+#../configure --prefix=/opt/software/openmpi-3.0.0/build/ --with-slurm --with-pmi --with-psm2
 
 # FFTW3
 

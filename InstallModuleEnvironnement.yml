@@ -1,0 +1,11 @@
+
+
+
+
+- name: Install slurmNodes (compute)
+  hosts: nodetest2
+  become: true
+  user: uraniumadm
+  become_user: root
+  roles:
+    - ModulesEnvironnement

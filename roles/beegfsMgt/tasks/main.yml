@@ -7,6 +7,8 @@
 
 - name: check if the directories {{ managementdirectory }} already exist
   file: path={{ managementdirectory }} state=directory owner=root
+  register: toto
+  ignore_errors: True
   tags: mgt
 
 - name: list contents of directory

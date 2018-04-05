@@ -1,6 +1,6 @@
 managementdirectory: /data/beegfs/beegfs_mgmtd
 metadatadirectory: /data/beegfs/beegfs_meta
-managementnode: node-40-IB.uranium.lan
+managementnode: storage1beegfs-IB.uranium.lan
 
 
 storagepath:

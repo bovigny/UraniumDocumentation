@@ -2,70 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62df9e3c-cde1-4301-8bb3-ffeb79eeed1f" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/InstallNFSSoftwareNode.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/InstallSlurmRPMS.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/InstallSlurmdbd.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Installldapserver.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/group_vars/beegfs" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/group_vars/ldap" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/group_vars/nfsserver" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/group_vars/slurmdbd" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/beegfsClient/handlers/main.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/beegfsClient/meta/main.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/beegfsClient/tasks/main.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/beegfsClient/templates/beegfs-client-autobuild.conf.j2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/beegfsClient/templates/beegfs-client-rebuild.sh.j2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/beegfsMeta/handlers/main.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/beegfsMeta/meta/main.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/beegfsMeta/tasks/main.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/beegfsMgt/handlers/main.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/beegfsMgt/meta/main.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/beegfsMgt/tasks/main.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/beegfsRepo/files/beegfs-rhel7.repo" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/beegfsRepo/tasks/main.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/beegfsStorage/handlers/main.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/beegfsStorage/meta/main.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/beegfsStorage/tasks/main.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/infiniband/templates/ifcfg-ib0.j2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/infiniband/templates/limits.conf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/ldapserver/tasks/main.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/ldapserver/templates/DB_CONFIG.j2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/ldapserver/templates/groupuranium.ldif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/ldapserver/templates/migrate_common.ph.j2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/ldapserver/templates/olcDatabase.ldif.j2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/ldapserver/templates/olcDatabase={1}monitor.ldif.j2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/ldapserver/templates/root.ldif.j2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/ldapserver/templates/uraniumldap.pem.j2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/ldapserver/templates/uraniumldapkey.pem.j2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/ldapserver/templates/uraniumuser.ldif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/nfsclients/meta/main.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/nfsclients/tasks/main.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/nfsclients/templates/exports.j2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/nfsserver/meta/main.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/nfsserver/tasks/main.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/slurmAccount/tasks/main.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/slurmd/templates/cgroup.conf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/slurmd/templates/slurm.conf.j2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/slurmdbd/handlers/main.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/slurmdbd/tasks/main.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/slurmdbd/templates/my.cnf.j2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/slurmdbd/templates/slurmdbd.conf.j2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/roles/slurminstallrpms/tasks/main.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/InstallModuleEnvironnement.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/group_vars/telegraf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/roles/ModulesEnvironnement/tasks/main.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/roles/ModulesEnvironnement/templates/module.sh" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/roles/telegraf/tasks/main.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/roles/telegraf/templates/influxdata.repo.j2" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/roles/telegraf/templates/telegraf.conf.j2" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/MungeSlurmPackages.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/TestPush.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/ansible-config/ansible.cfg" afterPath="$PROJECT_DIR$/ansible-config/ansible.cfg" />
-      <change beforePath="$PROJECT_DIR$/group_vars/all" afterPath="$PROJECT_DIR$/group_vars/all" />
-      <change beforePath="$PROJECT_DIR$/group_vars/slurm" afterPath="$PROJECT_DIR$/group_vars/slurm" />
-      <change beforePath="$PROJECT_DIR$/infinibandmac.retry" afterPath="$PROJECT_DIR$/infinibandmac.retry" />
-      <change beforePath="$PROJECT_DIR$/infinibandmac.yml" afterPath="$PROJECT_DIR$/infinibandmac.yml" />
+      <change beforePath="$PROJECT_DIR$/BeeGeeFSInstall.retry" afterPath="$PROJECT_DIR$/BeeGeeFSInstall.retry" />
+      <change beforePath="$PROJECT_DIR$/InstallSlurmRPMS.retry" afterPath="$PROJECT_DIR$/InstallSlurmRPMS.retry" />
+      <change beforePath="$PROJECT_DIR$/InstallSlurmdbd.retry" afterPath="$PROJECT_DIR$/InstallSlurmdbd.retry" />
+      <change beforePath="$PROJECT_DIR$/InstallSlurmdbd.yml" afterPath="$PROJECT_DIR$/InstallSlurmdbd.yml" />
+      <change beforePath="$PROJECT_DIR$/group_vars/beegfs" afterPath="$PROJECT_DIR$/group_vars/beegfs" />
       <change beforePath="$PROJECT_DIR$/inventories/prod.ini" afterPath="$PROJECT_DIR$/inventories/prod.ini" />
       <change beforePath="$PROJECT_DIR$/ipmitool.yml" afterPath="$PROJECT_DIR$/ipmitool.yml" />
-      <change beforePath="$PROJECT_DIR$/roles/infiniband/tasks/main.yml" afterPath="$PROJECT_DIR$/roles/infiniband/tasks/main.yml" />
-      <change beforePath="$PROJECT_DIR$/roles/munge/handlers/main.yml" afterPath="$PROJECT_DIR$/roles/munge/handlers/main.yml" />
-      <change beforePath="$PROJECT_DIR$/roles/munge/tasks/main.yml" afterPath="$PROJECT_DIR$/roles/munge/tasks/main.yml" />
-      <change beforePath="$PROJECT_DIR$/roles/slurmPush/tasks/main.yml" afterPath="$PROJECT_DIR$/roles/slurmPush/tasks/main.yml" />
-      <change beforePath="$PROJECT_DIR$/roles/slurmd/tasks/main.yml" afterPath="$PROJECT_DIR$/roles/slurmd/tasks/main.yml" />
+      <change beforePath="$PROJECT_DIR$/roles/beegfsClient/tasks/main.yml" afterPath="$PROJECT_DIR$/roles/beegfsClient/tasks/main.yml" />
+      <change beforePath="$PROJECT_DIR$/roles/beegfsMeta/meta/main.yml" afterPath="$PROJECT_DIR$/roles/beegfsMeta/meta/main.yml" />
+      <change beforePath="$PROJECT_DIR$/roles/beegfsMeta/tasks/main.yml" afterPath="$PROJECT_DIR$/roles/beegfsMeta/tasks/main.yml" />
+      <change beforePath="$PROJECT_DIR$/roles/beegfsMgt/meta/main.yml" afterPath="$PROJECT_DIR$/roles/beegfsMgt/meta/main.yml" />
+      <change beforePath="$PROJECT_DIR$/roles/beegfsMgt/tasks/main.yml" afterPath="$PROJECT_DIR$/roles/beegfsMgt/tasks/main.yml" />
+      <change beforePath="$PROJECT_DIR$/roles/slurmd/templates/slurm.conf.j2" afterPath="$PROJECT_DIR$/roles/slurmd/templates/slurm.conf.j2" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,38 +34,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.yml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/roles/ipmitool/tasks/main.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="14" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="14" />
+            <state relative-caret-position="202">
+              <caret line="62" column="34" lean-forward="true" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="prod.ini" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inventories/prod.ini">
+      <file leaf-file-name="slurm.conf.j2" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/roles/slurmd/templates/slurm.conf.j2">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="19" />
+            <state relative-caret-position="60">
+              <caret line="4" column="12" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Installldapserver.yml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Installldapserver.yml">
+      <file leaf-file-name="slurm" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/group_vars/slurm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="26" column="80" lean-forward="true" selection-start-line="26" selection-start-column="80" selection-end-line="26" selection-end-column="80" />
+            <state relative-caret-position="105">
+              <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/roles/nfsclients/meta/main.yml">
+      <file leaf-file-name="telegraf" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/group_vars/telegraf">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -118,50 +75,40 @@
         </entry>
       </file>
       <file leaf-file-name="main.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/roles/nfsclients/tasks/main.yml">
+        <entry file="file://$PROJECT_DIR$/roles/telegraf/tasks/main.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="39" column="40" lean-forward="false" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
+            <state relative-caret-position="195">
+              <caret line="13" column="105" lean-forward="false" selection-start-line="13" selection-start-column="105" selection-end-line="13" selection-end-column="105" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="telegraf.conf.j2" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/roles/telegraf/templates/telegraf.conf.j2">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="main.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/roles/nfsserver/tasks/main.yml">
+        <entry file="file://$PROJECT_DIR$/roles/beegfsClient/tasks/main.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="36" lean-forward="true" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
+            <state relative-caret-position="73">
+              <caret line="47" column="31" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="47" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/roles/ldapserver/tasks/main.yml">
+      <file leaf-file-name="ipmitool.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ipmitool.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-922">
-              <caret line="16" column="18" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="16" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ldap" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/group_vars/ldap">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="exports.j2" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/roles/nfsserver/templates/exports.j2">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+            <state relative-caret-position="401">
+              <caret line="38" column="24" lean-forward="false" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -170,8 +117,18 @@
       <file leaf-file-name="nfsserver" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/group_vars/nfsserver">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="15" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="15" />
+            <state relative-caret-position="0">
+              <caret line="0" column="28" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/roles/ModulesEnvironnement/tasks/main.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="14" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="19" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -182,6 +139,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>munge</find>
+      <find>configure</find>
     </findStrings>
     <replaceStrings>
       <replace>slurm</replace>
@@ -198,38 +156,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/roles/beegfsMeta/meta/main.yml" />
-        <option value="$PROJECT_DIR$/BeeGeeFSInstall.yml" />
-        <option value="$PROJECT_DIR$/roles/beegfsClient/files/beegfs-client-autobuild.conf.j2" />
-        <option value="$PROJECT_DIR$/roles/beegfsClient/templates/beegfs-client-rebuild.sh.j2" />
-        <option value="$PROJECT_DIR$/roles/beegfsClient/handlers/main.yml" />
-        <option value="$PROJECT_DIR$/roles/beegfsMeta/handlers/main.yml" />
-        <option value="$PROJECT_DIR$/roles/beegfsStorage/handlers/main.yml" />
-        <option value="$PROJECT_DIR$/roles/beegfsMgt/tasks/main.yml" />
-        <option value="$PROJECT_DIR$/roles/beegfsMeta/tasks/main.yml" />
-        <option value="$PROJECT_DIR$/roles/beegfsStorage/tasks/main.yml" />
-        <option value="$PROJECT_DIR$/roles/infiniband/templates/ifcfg-ib0.j2" />
-        <option value="$PROJECT_DIR$/infinibandmac.yml" />
-        <option value="$PROJECT_DIR$/roles/beegfsClient/tasks/main.yml" />
-        <option value="$PROJECT_DIR$/group_vars/beegfs" />
-        <option value="$PROJECT_DIR$/roles/munge/handlers/main.yml" />
         <option value="$PROJECT_DIR$/roles/munge/tasks/main.yml" />
         <option value="$PROJECT_DIR$/roles/slurmPush/tasks/main.yml" />
         <option value="$PROJECT_DIR$/group_vars/slurmPackages" />
         <option value="$PROJECT_DIR$/roles/slurmd/templates/cgroup.conf" />
         <option value="$PROJECT_DIR$/roles/slurminstallrpms/tasks/main.yml" />
-        <option value="$PROJECT_DIR$/group_vars/slurm" />
-        <option value="$PROJECT_DIR$/roles/slurmd/templates/slurm.conf.j2" />
-        <option value="$PROJECT_DIR$/InstallSlurmdbd.yml" />
         <option value="$PROJECT_DIR$/roles/slurmdbd/tasks/main.yml" />
         <option value="$PROJECT_DIR$/roles/slurmd/tasks/main.yml" />
         <option value="$PROJECT_DIR$/roles/slurmAccount/tasks/main.yml" />
-        <option value="$PROJECT_DIR$/roles/beegfsClient/meta/main.yml" />
         <option value="$PROJECT_DIR$/InstallNFSSoftwareNode" />
         <option value="$PROJECT_DIR$/roles/nfsserver/meta/main.yml" />
         <option value="$PROJECT_DIR$/roles/nfsserver/templates/exports" />
         <option value="$PROJECT_DIR$/InstallNFSSoftwareNode.yml" />
-        <option value="$PROJECT_DIR$/ipmitool.yml" />
         <option value="$PROJECT_DIR$/roles/ldapserver/templates/olcDatabase={2}hdb.ldif" />
         <option value="$PROJECT_DIR$/roles/ldapserver/templates/olcDatabase.ldif.j2" />
         <option value="$PROJECT_DIR$/roles/ldapserver/templates/olcDatabase={1}monitor.ldif.j2" />
@@ -240,7 +178,6 @@
         <option value="$PROJECT_DIR$/roles/ldapserver/templates/migrate_common.ph.j2" />
         <option value="$PROJECT_DIR$/roles/ldapserver/templates/root.ldif.j2" />
         <option value="$PROJECT_DIR$/roles/infiniband/tasks/main.yml" />
-        <option value="$PROJECT_DIR$/inventories/prod.ini" />
         <option value="$PROJECT_DIR$/roles/ldapserver/templates/uraniumuser.ldif" />
         <option value="$PROJECT_DIR$/roles/ldapserver/templates/groupuranium.ldif" />
         <option value="$PROJECT_DIR$/roles/ldapserver/tasks/main.yml" />
@@ -249,6 +186,27 @@
         <option value="$PROJECT_DIR$/roles/nfsserver/tasks/main.yml" />
         <option value="$PROJECT_DIR$/Installldapserver.yml" />
         <option value="$PROJECT_DIR$/roles/nfsclients/tasks/main.yml" />
+        <option value="$PROJECT_DIR$/roles/beegfsMgt/tasks/main.yml" />
+        <option value="$PROJECT_DIR$/roles/beegfsMeta/tasks/main.yml" />
+        <option value="$PROJECT_DIR$/roles/beegfsClient/meta/main.yml" />
+        <option value="$PROJECT_DIR$/roles/beegfsMeta/meta/main.yml" />
+        <option value="$PROJECT_DIR$/roles/beegfsMgt/meta/main.yml" />
+        <option value="$PROJECT_DIR$/group_vars/beegfs" />
+        <option value="$PROJECT_DIR$/BeeGeeFSInstall.yml" />
+        <option value="$PROJECT_DIR$/InstallSlurmdbd.yml" />
+        <option value="$PROJECT_DIR$/inventories/prod.ini" />
+        <option value="$PROJECT_DIR$/roles/ModulesEnvironnement/templates/module.sh" />
+        <option value="$PROJECT_DIR$/roles/beegfsClient/tasks/main.yml" />
+        <option value="$PROJECT_DIR$/InstallModuleEnvironnement.yml" />
+        <option value="$PROJECT_DIR$/group_vars/slurm" />
+        <option value="$PROJECT_DIR$/ipmitool.yml" />
+        <option value="$PROJECT_DIR$/roles/slurmd/templates/slurm.conf.j2" />
+        <option value="$PROJECT_DIR$/roles/ModulesEnvironnement/tasks/main.yml" />
+        <option value="$PROJECT_DIR$/group_vars/telegraf" />
+        <option value="$PROJECT_DIR$/roles/telegraf/templates/influxdata.repo.j2" />
+        <option value="$PROJECT_DIR$/roles/telegraf/tasks/main.yml" />
+        <option value="$PROJECT_DIR$/roles/telegraf/templates/telegraf.conf.j2" />
+        <option value="$PROJECT_DIR$/roles/ipmitool/tasks/main.yml" />
       </list>
     </option>
   </component>
@@ -293,64 +251,39 @@
             <path>
               <item name="UraniumDocumentation" type="b2602c69:ProjectViewProjectNode" />
               <item name="UraniumDocumentation" type="462c0819:PsiDirectoryNode" />
-              <item name="inventories" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UraniumDocumentation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UraniumDocumentation" type="462c0819:PsiDirectoryNode" />
               <item name="roles" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="UraniumDocumentation" type="b2602c69:ProjectViewProjectNode" />
               <item name="UraniumDocumentation" type="462c0819:PsiDirectoryNode" />
               <item name="roles" type="462c0819:PsiDirectoryNode" />
-              <item name="ldapserver" type="462c0819:PsiDirectoryNode" />
+              <item name="ipmitool" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="UraniumDocumentation" type="b2602c69:ProjectViewProjectNode" />
               <item name="UraniumDocumentation" type="462c0819:PsiDirectoryNode" />
               <item name="roles" type="462c0819:PsiDirectoryNode" />
-              <item name="ldapserver" type="462c0819:PsiDirectoryNode" />
+              <item name="ipmitool" type="462c0819:PsiDirectoryNode" />
               <item name="tasks" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="UraniumDocumentation" type="b2602c69:ProjectViewProjectNode" />
               <item name="UraniumDocumentation" type="462c0819:PsiDirectoryNode" />
               <item name="roles" type="462c0819:PsiDirectoryNode" />
-              <item name="nfsclients" type="462c0819:PsiDirectoryNode" />
+              <item name="telegraf" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="UraniumDocumentation" type="b2602c69:ProjectViewProjectNode" />
               <item name="UraniumDocumentation" type="462c0819:PsiDirectoryNode" />
               <item name="roles" type="462c0819:PsiDirectoryNode" />
-              <item name="nfsclients" type="462c0819:PsiDirectoryNode" />
+              <item name="telegraf" type="462c0819:PsiDirectoryNode" />
               <item name="tasks" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="UraniumDocumentation" type="b2602c69:ProjectViewProjectNode" />
               <item name="UraniumDocumentation" type="462c0819:PsiDirectoryNode" />
               <item name="roles" type="462c0819:PsiDirectoryNode" />
-              <item name="nfsserver" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UraniumDocumentation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UraniumDocumentation" type="462c0819:PsiDirectoryNode" />
-              <item name="roles" type="462c0819:PsiDirectoryNode" />
-              <item name="nfsserver" type="462c0819:PsiDirectoryNode" />
-              <item name="meta" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UraniumDocumentation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UraniumDocumentation" type="462c0819:PsiDirectoryNode" />
-              <item name="roles" type="462c0819:PsiDirectoryNode" />
-              <item name="nfsserver" type="462c0819:PsiDirectoryNode" />
-              <item name="tasks" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UraniumDocumentation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UraniumDocumentation" type="462c0819:PsiDirectoryNode" />
-              <item name="roles" type="462c0819:PsiDirectoryNode" />
-              <item name="nfsserver" type="462c0819:PsiDirectoryNode" />
+              <item name="telegraf" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -363,9 +296,9 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -377,16 +310,16 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/roles/ldapserver/templates" />
+      <recent name="$PROJECT_DIR$/roles/beegfsClient/templates" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/roles" />
       <recent name="$PROJECT_DIR$/roles/nfsserver/meta" />
       <recent name="$PROJECT_DIR$/roles/infiniband/templates" />
       <recent name="$PROJECT_DIR$/roles/beegfsStorage" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/roles/ldapserver/templates" />
-      <recent name="$PROJECT_DIR$/roles/beegfsClient/templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -455,14 +388,15 @@
       <workItem from="1520851725887" duration="289000" />
       <workItem from="1520852066457" duration="94558000" />
       <workItem from="1521721306960" duration="20711000" />
+      <workItem from="1522313044457" duration="16083000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115558000" />
+    <option name="totallyTimeSpent" value="131641000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="961" extended-state="6" />
+    <frame x="0" y="23" width="1680" height="964" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -474,10 +408,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32977462" sideWeight="0.495116" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3286052" sideWeight="0.495116" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25579977" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25885227" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -504,224 +438,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/testmunge.retry">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/munge/handlers/main.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/slurmPackages/tasks/main.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-607">
-          <caret line="45" column="101" lean-forward="false" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="101" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MungeSlurmPackages.yml" />
-    <entry file="file://$PROJECT_DIR$/common.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/munge/tasks/main.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="44" column="20" lean-forward="false" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/slurmPush/tasks/main.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/slurmdbd/templates/slurmdbd.conf.j2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/slurmd/templates/cgroup.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/InstallSlurmdbd.retry">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/slurmdbd/tasks/main.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/slurminstallrpms/tasks/main.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/slurmAccount/tasks/main.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/slurmd/templates/slurm.conf.j2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="28" column="37" lean-forward="false" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/beegfsClient/meta/main.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/beegfsMeta/meta/main.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="23" lean-forward="false" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/beegfsMeta/tasks/main.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/slurmd/tasks/main.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/nfsserver/templates/exports" />
-    <entry file="file://$PROJECT_DIR$/InstallNFSSoftwareNode.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/nfsserver/meta/main.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BeeGeeFSInstall.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/beegfsClient/tasks/main.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="85" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/group_vars/beegfs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/group_vars/slurm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/group_vars/slurmdbd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="33" lean-forward="false" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/group_vars/slurmPackages">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/InstallSlurmdbd.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="38" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/beegfsStorage/tasks/main.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/roles/ldapserver/templates/olcDatabase={1}monitor.ldif.j2">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -729,15 +449,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="16" lean-forward="false" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ipmitool.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="13" lean-forward="false" selection-start-line="20" selection-start-column="1" selection-end-line="38" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -745,7 +456,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="27" column="25" lean-forward="false" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -753,7 +463,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="25" lean-forward="false" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -761,7 +470,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="89" column="20" lean-forward="false" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -769,7 +477,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -785,7 +492,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -793,7 +499,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="69" lean-forward="false" selection-start-line="0" selection-start-column="69" selection-end-line="0" selection-end-column="69" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -801,7 +506,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="30" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -809,15 +513,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/ipmitool/tasks/main.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="14" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -837,34 +532,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/group_vars/nfsserver">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="15" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inventories/prod.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/roles/nfsserver/tasks/main.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="36" lean-forward="true" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
+          <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/roles/ldapserver/tasks/main.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-922">
-          <caret line="16" column="18" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="16" selection-end-column="18" />
+        <state relative-caret-position="240">
+          <caret line="16" column="18" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="16" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -877,18 +556,282 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/roles/nfsclients/tasks/main.yml">
+    <entry file="file://$PROJECT_DIR$/roles/beegfsMeta/meta/main.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="39" column="40" lean-forward="false" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
+        <state relative-caret-position="45">
+          <caret line="3" column="2" lean-forward="false" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/beegfsMgt/meta/main.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="2" lean-forward="false" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/beegfsClient/meta/main.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeeGeeFSInstall.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="28" column="34" lean-forward="true" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/beegfsMgt/tasks/main.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/slurmAccount/tasks/main.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/slurmdbd/templates/my.cnf.j2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/beegfsMeta/tasks/main.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="10" column="12" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="10" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Installldapserver.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="26" column="80" lean-forward="true" selection-start-line="26" selection-start-column="80" selection-end-line="26" selection-end-column="80" />
+        <state relative-caret-position="281">
+          <caret line="36" column="15" lean-forward="true" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/slurmdbd/templates/slurmdbd.conf.j2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/slurmPush/tasks/main.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestPush.retry">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/slurminstallrpms/tasks/main.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/slurmdbd/tasks/main.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/group_vars/slurmPackages">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/group_vars/beegfs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/ModulesEnvironnement/templates/module.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="51" lean-forward="true" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InstallSlurmRPMS.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/slurmPackages/tasks/main.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1279">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inventories/prod.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InstallSlurmdbd.retry">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InstallSlurmdbd.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-49">
+          <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/slurmd/templates/slurm.conf.j2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="12" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/ModulesEnvironnement/tasks/main.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="14" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="19" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InstallModuleEnvironnement.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ipmitool.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="38" column="24" lean-forward="false" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/group_vars/nfsserver">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="28" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/group_vars/telegraf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/nfsclients/tasks/main.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-394">
+          <caret line="0" column="36" lean-forward="true" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/group_vars/slurm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/telegraf/templates/influxdata.repo.j2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="47" lean-forward="false" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/beegfsClient/tasks/main.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="47" column="31" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="47" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/telegraf/tasks/main.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="105" lean-forward="false" selection-start-line="13" selection-start-column="105" selection-end-line="13" selection-end-column="105" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/telegraf/templates/telegraf.conf.j2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/ipmitool/tasks/main.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="62" column="34" lean-forward="true" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="34" />
           <folding />
         </state>
       </provider>

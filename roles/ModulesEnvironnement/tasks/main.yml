@@ -1,0 +1,30 @@
+- name: install module environnement
+  yum: name=environment-modules state=present
+  tags: modulenv
+
+- name: install module environnement
+  yum: name=fftw state=present
+  tags: modulenv
+#- name: infinipath
+#  yum: name=infinipath-psm state=present
+#
+#- name: infinipath-psm-devel
+#  yum: name=infinipath-psm-devel state=present
+#
+#- name: libpsm2
+#  yum: name={{item}} state=present
+#  with_items:
+#    - libpsm2
+#    - libpsm2-compat
+#    - libpsm2-devel
+#    - openmpi
+
+- name: ulimit -n 8192
+  shell: ulimit -n 8192
+
+- name: service slurmd restart
+  systemd: state=restarted name=slurmd
+
+- name: push module.sh into /etc/profile.d/
+  template: src=module.sh dest=/etc/profile.d/module.sh
+

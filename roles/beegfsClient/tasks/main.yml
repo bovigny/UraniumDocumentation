@@ -79,11 +79,19 @@
   ignore_errors: True
   tags: client
 
+
+- name: check if the directories /mnt/beegfs already exist
+  file: path=/mnt/beegfs state=directory owner=root
+  ignore_errors: True
+  tags: client
+
 - name: Make sure a service is running
   systemd: state=started name=beegfs-client
 
 - name: Make sure a service is running
   systemd: state=started name=beegfs-helperd
+
+
 
 
 #beegfs-ctl --listnodes --nodetype=meta --details
