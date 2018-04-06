@@ -28,8 +28,7 @@
 |  8140 |   foreman|
 |  8443 |   foreman|
 |  8888 |   chronograf (haproxy)|
-|       |          |
-|       |          |
+
 
 
 
