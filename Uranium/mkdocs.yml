@@ -3,4 +3,5 @@ pages:
     - Home: index.md
     - USB: usb.md
     - Haproxy: haproxy.md
+    - Port Used: ports.md
 theme: readthedocs

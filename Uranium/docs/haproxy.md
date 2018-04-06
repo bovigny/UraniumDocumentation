@@ -53,7 +53,7 @@ listen haproxy
 $ sudo service haproxy restart
 ````
 
-## Configuration
+## Configuration for Uranium Cluster
 ````
 global
   user root
@@ -86,7 +86,7 @@ listen stats *:9999
 #    reqadd X-Forwarded-Proto:\ http
 #    reqadd X-Forwarded-Proto:\ https
 
-
+# Configuration for Foreman
 frontend http_traffic
   #  mode            http
     bind            :80,:4000
@@ -97,7 +97,7 @@ frontend http_traffic
 #   redirect location https://uranium.unil.ch:4000
     use_backend redirection
 
-
+# Configuration for Chronograf
 frontend http_traffic
   #  mode            http
     bind            :80,:8888

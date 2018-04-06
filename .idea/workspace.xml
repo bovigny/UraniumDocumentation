@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62df9e3c-cde1-4301-8bb3-ffeb79eeed1f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Uranium/docs/haproxy.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Uranium/docs/firewalld.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Uranium/docs/ports.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uranium/docs/haproxy.md" beforeDir="false" afterPath="$PROJECT_DIR$/Uranium/docs/haproxy.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Uranium/mkdocs.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Uranium/mkdocs.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,18 +31,39 @@
       <file leaf-file-name="mkdocs.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Uranium/mkdocs.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+            <state relative-caret-position="75">
+              <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="haproxy.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ports.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Uranium/docs/ports.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="457">
+                <caret line="37" column="42" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="firewalld.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Uranium/docs/firewalld.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="haproxy.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Uranium/docs/haproxy.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="437">
-                <caret line="50" column="1" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
+              <first_editor relative-caret-position="1821">
+                <caret line="156" selection-start-line="156" selection-end-line="156" />
               </first_editor>
               <second_editor />
             </state>
@@ -64,8 +88,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/group_vars/slurmPackages" />
-        <option value="$PROJECT_DIR$/roles/slurmd/templates/cgroup.conf" />
         <option value="$PROJECT_DIR$/roles/slurminstallrpms/tasks/main.yml" />
         <option value="$PROJECT_DIR$/roles/slurmdbd/tasks/main.yml" />
         <option value="$PROJECT_DIR$/roles/slurmd/tasks/main.yml" />
@@ -113,8 +135,10 @@
         <option value="$PROJECT_DIR$/roles/telegraf/tasks/main.yml" />
         <option value="$PROJECT_DIR$/roles/telegraf/templates/telegraf.conf.j2" />
         <option value="$PROJECT_DIR$/roles/ipmitool/tasks/main.yml" />
-        <option value="$PROJECT_DIR$/Uranium/mkdocs.yml" />
         <option value="$PROJECT_DIR$/Uranium/docs/haproxy.md" />
+        <option value="$PROJECT_DIR$/Uranium/mkdocs.yml" />
+        <option value="$PROJECT_DIR$/Uranium/docs/ports.md" />
+        <option value="$PROJECT_DIR$/Uranium/docs/firewalld.md" />
       </list>
     </option>
   </component>
@@ -194,6 +218,14 @@
       <pane id="Scope" />
     </panes>
   </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -244,15 +276,15 @@
       <workItem from="1520852066457" duration="94558000" />
       <workItem from="1521721306960" duration="20711000" />
       <workItem from="1522313044457" duration="16501000" />
-      <workItem from="1522928082896" duration="1472000" />
+      <workItem from="1522928082896" duration="3216000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="723000" />
+    <option name="totallyTimeSpent" value="2467000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="964" extended-state="6" />
+    <frame x="0" y="23" width="1680" height="961" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -265,10 +297,10 @@
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4920635" visible="true" weight="0.32819906" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4920635" visible="true" weight="0.32936978" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.0946276" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22100122" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -291,16 +323,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/roles/ldapserver/templates/migrate_common.ph.j2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="89" column="20" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/group_vars/all">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/roles/infiniband/tasks/main.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="139">
@@ -610,20 +632,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Uranium/mkdocs.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Uranium/docs/haproxy.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="437">
-            <caret line="50" column="1" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
+          <first_editor relative-caret-position="1821">
+            <caret line="156" selection-start-line="156" selection-end-line="156" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Uranium/mkdocs.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Uranium/docs/ports.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="457">
+            <caret line="37" column="42" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Uranium/docs/firewalld.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
         </state>
       </provider>
     </entry>
