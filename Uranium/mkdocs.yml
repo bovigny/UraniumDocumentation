@@ -2,4 +2,5 @@ site_name: Uranium Documentation
 pages:
     - Home: index.md
     - USB: usb.md
+    - Haproxy: haproxy.md
 theme: readthedocs
