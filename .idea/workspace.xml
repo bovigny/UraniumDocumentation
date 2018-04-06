@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62df9e3c-cde1-4301-8bb3-ffeb79eeed1f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Uranium/docs/firewalld.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uranium/docs/ports.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Uranium/docs/haproxy.md" beforeDir="false" afterPath="$PROJECT_DIR$/Uranium/docs/haproxy.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Uranium/mkdocs.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Uranium/mkdocs.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uranium/docs/firewalld.md" beforeDir="false" afterPath="$PROJECT_DIR$/Uranium/docs/firewalld.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,8 +48,8 @@
       <file leaf-file-name="firewalld.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Uranium/docs/firewalld.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+            <state relative-caret-position="90">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -276,12 +272,12 @@
       <workItem from="1520852066457" duration="94558000" />
       <workItem from="1521721306960" duration="20711000" />
       <workItem from="1522313044457" duration="16501000" />
-      <workItem from="1522928082896" duration="3216000" />
+      <workItem from="1522928082896" duration="3524000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2467000" />
+    <option name="totallyTimeSpent" value="2775000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="961" extended-state="6" />
@@ -661,8 +657,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Uranium/docs/firewalld.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>

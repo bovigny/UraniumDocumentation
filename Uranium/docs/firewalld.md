@@ -5,8 +5,9 @@
 - firewall-cmd --zone=internal --add-interface=em2 --permanent
 - firewall-cmd --list-all-zones
 
-# In case of change
 
+## In case of change
+- firewall-cmd --zone=internal --remove-interface=em1
 - firewall-cmd --zone=external --change-interface=em1
 - firewall-cmd --get-active-zone
 - firewall-cmd --zone=internal --change-interface=em2
@@ -74,6 +75,7 @@ see links [https://access.redhat.com/documentation/en-us/red_hat_enterprise_linu
 - firewall-cmd --permanent --zone=internal --add-port=8888/tcp
 - firewall-cmd --permanent --zone=internal --add-port=9092/tcp
 - firewall-cmd --permanent --zone=internal --add-port=25/tcp
+- firewall-cmd --complete-reload
 
 # Add ports Zone external (Public network(unil))
 
@@ -100,3 +102,4 @@ see links [https://access.redhat.com/documentation/en-us/red_hat_enterprise_linu
 - firewall-cmd --permanent --zone=external --add-port=8888/tcp
 - firewall-cmd --permanent --zone=external --add-port=9092/tcp
 - firewall-cmd --permanent --zone=external --add-port=25/tcp
+- firewall-cmd --complete-reload
