@@ -48,8 +48,8 @@
       <file leaf-file-name="firewalld.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Uranium/docs/firewalld.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="97" column="58" selection-start-line="97" selection-start-column="58" selection-end-line="97" selection-end-column="58" />
+            <state relative-caret-position="211">
+              <caret line="72" column="58" selection-start-line="72" selection-start-column="58" selection-end-line="72" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -272,12 +272,12 @@
       <workItem from="1520852066457" duration="94558000" />
       <workItem from="1521721306960" duration="20711000" />
       <workItem from="1522313044457" duration="16501000" />
-      <workItem from="1522928082896" duration="3655000" />
+      <workItem from="1522928082896" duration="3724000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2906000" />
+    <option name="totallyTimeSpent" value="2975000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="961" extended-state="6" />
@@ -657,8 +657,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Uranium/docs/firewalld.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="97" column="58" selection-start-line="97" selection-start-column="58" selection-end-line="97" selection-end-column="58" />
+        <state relative-caret-position="211">
+          <caret line="72" column="58" selection-start-line="72" selection-start-column="58" selection-end-line="72" selection-end-column="58" />
         </state>
       </provider>
     </entry>

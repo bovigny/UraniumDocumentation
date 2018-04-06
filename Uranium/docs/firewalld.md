@@ -68,6 +68,8 @@ see links [https://access.redhat.com/documentation/en-us/red_hat_enterprise_linu
 - firewall-cmd --permanent --zone=internal --add-port=6817/udp
 - firewall-cmd --permanent --zone=internal --add-port=6817/tcp
 - firewall-cmd --permanent --zone=internal --add-port=6818/udp
+- firewall-cmd --permanent --zone=internal --add-port=6818/tcp
+- firewall-cmd --permanent --zone=internal --add-port=6819/udp
 - firewall-cmd --permanent --zone=internal --add-port=6819/tcp
 - firewall-cmd --permanent --zone=internal --add-port=7321/tcp
 - firewall-cmd --permanent --zone=internal --add-port=4000/tcp
@@ -95,6 +97,8 @@ see links [https://access.redhat.com/documentation/en-us/red_hat_enterprise_linu
 - firewall-cmd --permanent --zone=external --add-port=6817/udp
 - firewall-cmd --permanent --zone=external --add-port=6817/tcp
 - firewall-cmd --permanent --zone=external --add-port=6818/udp
+- firewall-cmd --permanent --zone=external --add-port=6818/tcp
+- firewall-cmd --permanent --zone=external --add-port=6819/udp
 - firewall-cmd --permanent --zone=external --add-port=6819/tcp
 - firewall-cmd --permanent --zone=external --add-port=7321/tcp
 - firewall-cmd --permanent --zone=external --add-port=4000/tcp
