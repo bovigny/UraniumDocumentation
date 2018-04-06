@@ -13,13 +13,27 @@
 #
 
 
-- name: Install slurmNodes (compute)
+- name: Install package slurm on head node
   hosts: slurmpackages
   become: true
   user: uraniumadm
   become_user: root
   roles:
     - slurmPackages
+
+
+## Install Slurm
+- name: Install Slurm Database
+  hosts: nodedatabase
+  become: true
+  user: uraniumadm
+  become_user: root
+  roles:
+    - munge
+    - slurmPush
+    - slurminstallrpms
+    - slurmdbd
+
 
 - name: Install slurmNodes (compute)
   hosts: nodetest2

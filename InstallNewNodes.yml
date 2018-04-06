@@ -1,0 +1,20 @@
+# Launch Script
+# ansible-playbook InstallNewNodes.yml -u uraniumadm -i inventories/prod.ini
+- name: Install a new node with all packages
+  hosts: clients
+  become: true
+  user: uraniumadm
+  become_user: root
+  vars:
+    ldap: "both"
+    slurmd: "Activate"
+  roles:
+    - ipmitool
+    - infiniband
+    - beegfsClient
+    - nfsclients
+    - munge
+    - slurmPush
+    - slurminstallrpms
+    - slurmd
+    - ModulesEnvironnement

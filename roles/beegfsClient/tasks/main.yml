@@ -1,3 +1,6 @@
+
+- include_vars: group_vars/beegfs
+
 - name: Install yum install beegfs-client / beegfs-helperd / beegfs-utils / kernel / kernel-devel / kernel-tools / kernel-tools-libs-devel
   yum: name={{ item }} state=present
   with_items:
