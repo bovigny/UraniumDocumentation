@@ -1,6 +1,6 @@
 # HPC Gateway
 
-##Rack F07:
+## Rack F07:
 
 * Noeud 1:
     1. cuivre 1gb -> 130.223.30.77/22 -> uranium1.unil.ch 
@@ -14,7 +14,7 @@
 
 # Storage 
 
-##Rack B07:
+## Rack B07:
 
 * Synology:
     1. fibre 10gb -> VLAN privé (10.8.103/24)
