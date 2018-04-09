@@ -50,7 +50,7 @@
 | Addresses | Name |    RACK    |   DNS |
 |:-----:|:--------:|:--------:|:--------:|
 |   130.223.30.77/22  |   gw1 (HPC)    |    F07    | uranium1.unil.ch   |
-|   130.223.30.78/22  |   gw2 (HPC)   | F09 |uranium1.unil.ch   |
+|   130.223.30.78/22  |   gw2 (HPC)   | F09 |uranium2.unil.ch   |
 |   130.223.30.79/22  |   Virtual Address    |    F07-F09    | uranium.unil.ch  |
 |   10.8.103.2/24  |   gw1 (Data)  |    F07 |   -   |
 |   10.8.103.3/24  |   gw2 (Data)   |   F09 |   -   |
