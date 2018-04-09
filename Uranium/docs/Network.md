@@ -54,16 +54,16 @@
 |   130.223.30.79/22  |   Virtual Address    |    F07-F09    | uranium.unil.ch  |
 |   10.8.103.2/24  |   gw1 (Data)  |    F07 |   -   |
 |   10.8.103.3/24  |   gw2 (Data)   |   F09 |   -   |
-|   Storage Synology  |    |    |     |
+|   **Storage Synology**  |    |    |     |
 |   130.223.30.94/22  |   uranium-syn   |   B07 |   uranium-syn.unil.ch    |
 |   10.8.103/24  |   syn   |   B07 |   -    |
-|   Storage Gateway SAN VNX  |    |    |     |
+|   **Storage Gateway SAN VNX**  |    |    |     |
 |   130.223.30.87/22  |   uranium-san   |   B07 |   uranium-san.unil.ch    |
 |   10.8.103/24  |   san   |   B07 |   -    |
-|   Storage VNX5400 (management)  |    |    |     |
+|   **Storage VNX5400 (management)**  |    |    |     |
 |   130.223.30.88/22  |   uranium-spa   |   B07 |   uranium-spa.unil.ch    |
 |   130.223.30.89/22  |   uranium-spa   |   B07 |   uranium-spa.unil.ch    |
-|   Storage ISILONS  |    |    |     |
+|   **Storage ISILONS**  |    |    |     |
 |   130.223.30.90/22  |   uranium-isi1   |   B07 |   uranium-isi1.unil.ch    |
 |   10.8.103.2/24  |   isi1 (Data)  |    B07 |   -   |
 |   130.223.30.91/22  |   uranium-isi2   |   B07 |   uranium-isi2.unil.ch    |
@@ -74,14 +74,3 @@
 |   10.8.103.2/24  |   isi4 (Data)  |    B07 |   -   |
 
 
--------------------------------------------------------------
- Centered   Default           Right Left
-  Header    Aligned         Aligned Aligned
------------ ------- --------------- -------------------------
-   First    row                12.0 Example of a row that
-                                    spans multiple lines.
-
-  Second    row                 5.0 Here's another one. Note
-                                    the blank line between
-                                    rows.
--------------------------------------------------------------
