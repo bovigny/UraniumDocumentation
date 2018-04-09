@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="62df9e3c-cde1-4301-8bb3-ffeb79eeed1f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BeeGeeFSInstall.retry" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InstallModuleEnvironnement.retry" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InstallNFSSoftwareNode.retry" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InstallSlurmRPMS.retry" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InstallSlurmdbd.retry" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InstallSlurmdbd.yml" beforeDir="false" afterPath="$PROJECT_DIR$/InstallSlurmdbd.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Installldapserver.retry" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestPush.retry" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common.retry" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/generate_ssh_config.retry" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infinibandmac.retry" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventories/prod.ini" beforeDir="false" afterPath="$PROJECT_DIR$/inventories/prod.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipmitool.retry" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/roles/beegfsClient/tasks/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/beegfsClient/tasks/main.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roles/slurmd/templates/slurm.conf.j2" beforeDir="false" afterPath="$PROJECT_DIR$/roles/slurmd/templates/slurm.conf.j2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testmunge.retry" beforeDir="false" />
-    </list>
+    <list default="true" id="62df9e3c-cde1-4301-8bb3-ffeb79eeed1f" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,7 +21,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InstallNewNodes.yml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="InstallNewNodes.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/InstallNewNodes.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
@@ -48,7 +30,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.yml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/roles/ldapserver/tasks/main.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
@@ -75,6 +57,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="common.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common.yml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="main.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/roles/common/tasks/main.yml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
       <file leaf-file-name="InstallNFSSoftwareNode.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/InstallNFSSoftwareNode.yml">
           <provider selected="true" editor-type-id="text-editor" />
@@ -85,15 +77,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
               <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Installldapserver.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Installldapserver.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -184,7 +167,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="961" />
@@ -337,16 +320,15 @@
       <workItem from="1522313044457" duration="16501000" />
       <workItem from="1522928082896" duration="587000" />
       <workItem from="1523024748477" duration="42000" />
-      <workItem from="1523024816186" duration="1785000" />
+      <workItem from="1523024816186" duration="2461000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134496000" />
+    <option name="totallyTimeSpent" value="135172000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="961" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -358,10 +340,10 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4920635" visible="true" weight="0.32936978" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4920635" visible="true" weight="0.32936978" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22588523" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22588523" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -384,20 +366,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/roles/ldapserver/templates/uraniumldapkey.pem.j2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/ldapserver/templates/uraniumldap.pem.j2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/roles/ldapserver/templates/migrate_common.ph.j2">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
@@ -663,13 +631,6 @@
     <entry file="file://$PROJECT_DIR$/InstallNFSSoftwareNode.yml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/BeeGeeFSInstall.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/group_vars/beegfs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -681,13 +642,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="42" column="15" selection-start-line="42" selection-start-column="15" selection-end-line="42" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/ldapserver/tasks/main.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="20" lean-forward="true" selection-start-line="3" selection-end-line="4" />
         </state>
       </provider>
     </entry>
@@ -728,6 +682,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="34" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BeeGeeFSInstall.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/common/tasks/main.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/ldapserver/tasks/main.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="20" lean-forward="true" selection-start-line="3" selection-end-line="4" />
         </state>
       </provider>
     </entry>
