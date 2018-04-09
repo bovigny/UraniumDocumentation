@@ -1,0 +1,12 @@
+- name: Remove old ssh banner
+  lineinfile: "dest=/etc/ssh/sshd_config state=absent line='Banner /etc/issue.net'"
+  tags: ssh
+
+- name: Setup ssh banner
+  lineinfile: "dest=/etc/ssh/sshd_config state=present regexp='^#?Banner\\s.*' line='Banner /etc/ssh/sshd-banner'"
+  notify: restart sshd
+  tags: ssh
+
+- name: Upload sshd-banner file
+  template: src=etc/ssh/sshd-banner.j2 dest=/etc/ssh/sshd-banner owner=root mode=755
+  tags: ssh

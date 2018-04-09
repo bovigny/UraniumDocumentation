@@ -18,3 +18,5 @@
     - slurminstallrpms
     - slurmd
     - ModulesEnvironnement
+    - telegraf
+    - ssh

@@ -1,4 +1,5 @@
 - include_vars: group_vars/telegraf
+  tags: telegraf
 
 - name: Push repos files
   template: src=influxdata.repo.j2 dest=/etc/yum.repos.d/influxdata.repo owner=root group=root mode=0755
@@ -10,5 +11,31 @@
   tags:
     - telegraf
 
+
+- name: install hddtemp
+  yum: name=hddtemp state=present
+  tags:
+    - telegraf
+
+- name: install ipmitool
+  yum: name=ipmitool state=present
+  tags:
+    - telegraf
+
+- name: ensure that hddtemp is running
+  systemd: name=hddtemp state=started
+  tags: telegraf
+
+- name: ensure that hddtemp is running
+  systemd: name=ipmievd state=started
+  tags: telegraf
+
+- name: change owner group /dev/ipmi0
+  file: path=/dev/ipmi0 owner=telegraf group=telegraf
+  tags: telegraf
+
 - name: push telegraf.conf
-   template: src=influxdata.repo.j2 dest=/etc/yum.repos.d/influxdata.repo owner=root group=root mode=0755
+  template: src=telegraf.conf dest=/etc/telegraf/telegraf.conf owner=root group=root
+  tags: telegraf
+  notify:
+      - restart telegraf
