@@ -4,6 +4,6 @@ slurmname: slurm
 slurmuid: 982
 
 clustername: uranium
-headnode: node-15.uranium.lan
-headnodeaddr: 10.8.100.25
-databasenode: node-19.uranium.lan
+headnode: gw1.uranium.lan
+headnodeaddr: 10.8.100.2
+databasenode: dhcp2.uranium.lan

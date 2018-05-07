@@ -1,0 +1,18 @@
+"lsync_mounts": [
+            {
+                "mount": "/homeMMG"
+            },
+            {
+                "mount": "/softwares"
+            }
+            ]
+
+"targets": [
+            {
+            "target": "10.8.100.201"
+            },
+            {
+            "target": "10.8.100.202"
+            }
+
+]

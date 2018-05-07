@@ -1,0 +1,51 @@
+---
+
+- include_vars: group_vars/tomcat-servers
+  tags: tomcat
+
+- name: add group "tomcat"
+  group: name=tomcat
+
+- name: add user "tomcat"
+  user: name=tomcat group=tomcat home={{ pathinstalltomcat }}/tomcat createhome=no state=present
+  sudo: True
+
+#- name: create tomcat directory
+#  file: path=/opt/tomcat state=directory owner=tomcat group=tomcat mode=0775 recurse=yes
+
+- name: Download Tomcat
+  get_url: url={{ tomcaturl }} dest=/tmp
+
+- name: Extract archive
+  command: chdir=/tmp tar xvf /tmp/{{ tomcatversion }}.tar.gz creates=/tmp/{{ tomcatversion }}
+
+- name: check if {{ pathinstalltomcat}}/tomcat exist
+  stat: path={{ pathinstalltomcat }}/tomcat/
+  register: tomcatexist
+
+
+- name: mv apache-tomcat
+  command: /bin/mv /tmp/{{ tomcatversion }}/ {{ pathinstalltomcat }}/tomcat
+  when: not tomcatexist.stat.exists
+
+
+
+- name: create tomcat directory
+  file: path={{ pathinstalltomcat }}/tomcat state=directory owner=tomcat group=tomcat mode=0755 recurse=yes
+
+- name: create tomcat logs directory
+  file: path={{ pathinstalltomcat }}/tomcat/logs state=directory owner=tomcat group=tomcat mode=0755 recurse=yes
+
+- name: Change ownership of Tomcat installation
+  file: path={{ pathinstalltomcat }}/tomcat/ owner=tomcat group=tomcat state=directory recurse=yes
+
+- name: Push tomcat.service
+  template: src=server.xml.j2 dest={{ pathinstalltomcat }}/tomcat/conf/server.xml owner=tomcat group=tomcat
+
+
+- name: Push tomcat.service
+  template: src=tomcat.service.j2 dest=/etc/systemd/system/tomcat.service
+
+- name: systemctl restart tomcat.service
+  systemd: state=restarted daemon_reload=yes name=tomcat enabled=yes
+

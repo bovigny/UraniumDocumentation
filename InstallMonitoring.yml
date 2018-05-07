@@ -1,0 +1,20 @@
+# Launch Script
+# ansible-playbook InstallMonitoring.yml -u uraniumadm -i inventories/prod.ini
+# If you want for example only launch the ssh roles :
+# ansible-playbook InstallMonitoring.yml -u uraniumadm -i inventories/prod.ini --tags "ssh"
+# Ldap both (Nfs for LDAP and /softwares)
+# slurmd "Activate slurmd daemon"
+- name: Install a new node with all packages
+  hosts: clients
+  become: true
+  user: uraniumadm
+  become_user: root
+  roles:
+    - ipmitool
+    - infiniband
+    - nfsclients
+    - influxdb
+    - telegraf
+    - kapacitor
+    - chronograf
+    - ssh

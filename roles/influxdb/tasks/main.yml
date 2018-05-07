@@ -1,0 +1,50 @@
+- include_vars: group_vars/influxdb
+  tags: influxdb
+
+- name: Push repos files
+  template: src=influxdata.repo.j2 dest=/etc/yum.repos.d/influxdata.repo owner=root group=root mode=0755
+  tags:
+    - influxdb
+
+- name: install influxdb
+  yum: name=influxdb state=present
+  notify:
+    - restart influxdb
+  tags: influxdb
+
+- name: ensure that influxdb is running
+  systemd: name=influxdb state=started
+  tags: influxdb
+
+
+- name: "Create InfluxDB user"
+  command: 'influx -database "http://localhost:8086" -execute "CREATE USER {{item.user}} WITH PASSWORD
+             {{item.pass}} WITH ALL PRIVILEGES"'
+  with_items:
+    - { user: "\"{{ userdatabase }}\"", pass: "'{{ userpassword }}'" }
+  tags: influxdb
+
+- name: push telegraf.conf
+  template: src=influxdb.conf.j2 dest=/etc/influxdb/influxdb.conf owner=root group=root
+  tags: influxdb
+  notify:
+      - restart influxdb
+
+
+
+# influx -username 'root' -password 'toto1234'
+
+#- name: Create database
+#  influxdb_database:
+#      hostname: "{{influxdb_ip_address}}"
+#      database_name: "{{influxdb_database_name}}"
+
+
+#- name: Create database using custom credentials
+#  influxdb_database:
+#      hostname: "{{influxdb_ip_address}}"
+#      username: "{{influxdb_username}}"
+#      password: "{{influxdb_password}}"
+#      database_name: "{{influxdb_database_name}}"
+#      ssl: no
+#      validate_certs: yes

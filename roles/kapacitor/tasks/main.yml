@@ -1,0 +1,20 @@
+- include_vars: group_vars/influxdb
+  tags: kapacitor
+
+- name: Push repos files
+  template: src=influxdata.repo.j2 dest=/etc/yum.repos.d/influxdata.repo owner=root group=root mode=0755
+  tags:
+    - kapacitor
+
+- name: install kapacitor
+  yum: name=kapacitor state=present
+  notify:
+    - restart kapacitor
+  tags: kapacitor
+
+- name: push kapacitor.conf
+  template: src=kapacitor.conf.j2 dest=/etc/kapacitor/kapacitor.conf owner=root group=root
+  tags: kapacitor
+  notify:
+      - restart kapacitor
+

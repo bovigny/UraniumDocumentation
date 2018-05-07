@@ -9,6 +9,9 @@
   roles:
     - ipmitool
 
+# IMPITOOL
+#https://sysadmin.compxtreme.ro/configuring-drac-with-ipmitool/
+
 # Openmpi
 #yum install infiniband-diags libibcommon libibmad libibumad
 #yum install libpsm2 libpsm2-compat libpsm2-devel

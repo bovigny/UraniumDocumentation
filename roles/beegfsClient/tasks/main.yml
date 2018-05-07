@@ -89,10 +89,12 @@
   tags: client
 
 - name: Make sure a service is running
-  systemd: state=started name=beegfs-client
+  systemd: state=started name=beegfs-helperd
 
 - name: Make sure a service is running
-  systemd: state=started name=beegfs-helperd
+  systemd: state=started name=beegfs-client
+
+
 
 
 

@@ -1,8 +1,10 @@
-influxdbdatabase: 10.8.100.65
+#influxdbdatabase: 10.8.100.65
 porttelegraf: 8086
 namedatabasetelegraf: telegraf
 usernametelegraf: root
 passwordtelegraf: toto1234
+
+influxdbdatabase: 10.8.100.199
 
 telegraf_influxdb_urls:
   - "http://{{ influxdbdatabase }}:{{ porttelegraf }}"

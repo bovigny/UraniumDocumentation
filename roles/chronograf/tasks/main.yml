@@ -1,0 +1,22 @@
+- include_vars: group_vars/chronograf
+  tags: chronograf
+
+- name: download the file
+  get_url:
+      url: "{{urldownload}}"
+      dest: "/opt"
+  tags: chronograf
+
+- name: install chronograf
+  yum: name=/opt/chronograf-{{ versionchronograf }}.x86_64.rpm state=present
+  notify:
+    - start chronograf
+    - restart chronograf
+  tags: chronograf
+
+- name: enable chronograf
+  systemd:
+    name: chronograf
+    state: started
+    enabled: True
+  tags: chronograf

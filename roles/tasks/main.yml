@@ -1,0 +1,45 @@
+---
+
+- name: add group "tomcat"
+  group: name=tomcat
+
+- name: add user "tomcat"
+  user: name=tomcat group=tomcat home={{ pathelsevier }}/tomcat createhome=no state=present
+  sudo: True
+
+#- name: create tomcat directory
+#  file: path=/opt/tomcat state=directory owner=tomcat group=tomcat mode=0775 recurse=yes
+
+- name: Download Tomcat
+  get_url: url=http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.24/bin/apache-tomcat-8.5.24.tar.gz dest=/tmp
+
+- name: Extract archive
+  command: chdir=/tmp tar xvf /tmp/apache-tomcat-8.5.24.tar.gz creates=/tmp/apache-tomcat-8.5.24
+
+- name: check if {{ pathelsevier}}/tomcat exist
+  stat: path={{ pathelsevier }}/tomcat/
+  register: tomcatexist
+
+
+- name: mv apache-tomcat
+  command: /bin/mv /tmp/apache-tomcat-8.5.24/ {{ pathelsevier }}/tomcat
+  when: not tomcatexist.stat.exists
+ 
+
+- name: create tomcat directory
+  file: path={{ pathelsevier }}/tomcat state=directory owner=tomcat group=tomcat mode=0755 recurse=yes
+
+
+- name: Change ownership of Tomcat installation
+  file: path={{ pathelsevier }}/tomcat/ owner=tomcat group=tomcat state=directory recurse=yes
+
+- name: Push tomcat.service
+  template: src=server.xml.j2 dest={{ pathelsevier }}/tomcat/conf/server.xml owner=tomcat group=tomcat
+
+
+- name: Push tomcat.service
+  template: src=tomcat.service.j2 dest=/etc/systemd/system/tomcat.service
+
+- name: systemctl restart tomcat.service
+  systemd: state=restarted daemon_reload=yes name=tomcat enabled=yes
+

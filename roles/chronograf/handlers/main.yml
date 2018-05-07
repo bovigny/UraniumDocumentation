@@ -1,0 +1,5 @@
+- name: start chronograf
+  systemd: name=chronograf state=started
+
+- name: restart chronograf
+  systemd: name=chronograf state=restarted

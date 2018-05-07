@@ -105,3 +105,6 @@
   #authconfig --enableldap --enableldapauth --ldapserver=10.8.102.40 --ldapbasedn="dc=uranium,dc=lan" --update
 
 #systemctl restart  nslcd
+
+# FREEIPA
+#https://www.worteks.com/fr/2018/03/29/freeipa-part1/

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+export JDK_DIRS=($(ls -d /opt/jdk*))
+export JDK_VER=${JDK_DIRS[@]:(-1)}
+
+alternatives --install /usr/bin/java java /opt/"${JDK_VER##*/}"/jre/bin/java 20000
+
+alternatives --install /usr/bin/jar jar /opt/"${JDK_VER##*/}"/bin/jar 20000
+
+alternatives --install /usr/bin/javac javac /opt/"${JDK_VER##*/}"/bin/javac 20000
+
+alternatives --install /usr/bin/javaws javaws /opt/"${JDK_VER##*/}"/jre/bin/javaws 20000
+
+alternatives --set java /opt/"${JDK_VER##*/}"/jre/bin/java
+
+alternatives --set javaws /opt/"${JDK_VER##*/}"/jre/bin/javaws
+
+alternatives --set javac /opt/"${JDK_VER##*/}"/bin/javac
+
+alternatives --set jar /opt/"${JDK_VER##*/}"/bin/jar
+
+export JAVA_HOME=/opt/"${JDK_VER##*/}"
+export JRE_HOME=/opt/"${JDK_VER##*/}"/jre
+export PATH=$PATH:/opt/"${JDK_VER##*/}"/bin:/opt/"${JDK_VER##*/}"/jre/bin
+
+exit 0

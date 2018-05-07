@@ -1,7 +1,7 @@
-slurmversion: 17.11.4
-slurmversionmodif: 17.11.4-1
+slurmversion: 17.11.5
+slurmversionmodif: 17.11.5-1
 pathslurm: /root/slurm
 slurmurl: https://download.schedmd.com/slurm
 uraniumrpms: /home/{{ uraniumadm }}/rpms
-slurmpackagesnode: node-15.uranium.lan
+slurmpackagesnode: dhcp2.uranium.lan
 

@@ -1,0 +1,32 @@
+---
+
+- include_vars: group_vars/tomcat-servers
+  tags: chemaxon
+
+- name: add group "chemaxon"
+  group: name=chemaxon
+
+- name: add user "chemaxon"
+  user: name=chemaxon group=chemaxon home=/home/chemaxon createhome=yes state=present
+  sudo: True
+
+- name: Push webservice.war into {{ pathinstalltomcat }}/tomcat/webapps/
+  copy: src=webservices.war dest={{ pathinstalltomcat }}/tomcat/webapps/ owner=tomcat group=tomcat
+
+- name: Add chemaxon directory into /root/.chemaxon
+  file: path=/root/.chemaxon state=directory mode=0755
+
+- name: Push the license chemaxon => This is not free :(((((
+  template: src=license.cxl.j2 dest=/root/.chemaxon/license.cxl mode=0644
+
+- name: Add chemaxon directory into {{ pathinstalltomcat }}/tomcat/.chemaxon
+  file: path={{ pathinstalltomcat }}/tomcat/.chemaxon state=directory mode=0755 owner=tomcat group=tomcat
+
+- name: Push the license chemaxon => This is not free :(((((
+  template: src=license.cxl.j2 dest={{ pathinstalltomcat }}/tomcat/.chemaxon/license.cxl mode=0644 owner=tomcat group=tomcat
+
+- name: systemctl restart tomcat.service
+  systemd: state=restarted daemon_reload=yes name=tomcat enabled=yes
+
+
+

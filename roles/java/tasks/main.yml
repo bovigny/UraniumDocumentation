@@ -1,0 +1,33 @@
+- include_vars: group_vars/java
+  tags: java
+
+- name: check if /opt/{{ jdkversion }}.tar.gz exist
+  stat: path=/opt/{{ jdkversion }}.tar.gz
+  register: javaexist
+  tags: java
+
+- name: java | Download
+  #command: "wget --no-cookies --no-check-certificate --header 'Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie' http://download.oracle.com/otn-pub/java/jdk/8u121-b13/e9e7ea248e2c4826b92b3f075a80e441/jdk-8u121-linux-x64.tar.gz -P /opt/"
+  command: "wget --no-check-certificate -c --header 'Cookie: oraclelicense=accept-securebackup-cookie' {{ jdkdownloadurl }} -P /opt/"
+  when: not javaexist.stat.exists
+  tags: java
+
+- name: untar java
+  unarchive: src=/opt/{{ jdkversion }}.tar.gz dest=/opt remote_src=True
+  tags: java
+
+- name: remove {{ jdkversion }}.tar.gz
+  shell: rm /opt/{{ jdkversion }}.tar.gz
+  tags: java
+
+- name: java | alternative
+  template: src=alternatives2.sh.j2 dest=/opt/alternatives.sh mode=755
+  tags: java
+
+- name: Java | alternative script run
+  command: /usr/bin/bash /opt/alternatives.sh
+  tags: java
+
+- name: push java.sh in /etc/profile.d/
+  template: src=java.sh.j2 dest=/etc/profile.d/java.sh
+  tags: java

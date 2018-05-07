@@ -1,0 +1,24 @@
+- include_vars: group_vars/lsync
+  tags: lsync
+
+- name: install packages used by lsync
+  yum: name={{ item }} state=present
+  with_items:
+    - lua
+    - lua-devel
+    - pkgconfig
+    - gcc
+    - asciidoc
+    - lsyncd
+
+- name: push lsync.conf in /etc/
+  template: src=lsync.conf.j2 dest=/etc/lsyncd.conf
+  tags: lsync
+
+- name: create directory
+  file: path=/var/log/lsyncd/ state=directory
+  tags: lsync
+
+- name: ensure lsync is running
+  systemd: name=lsyncd state=started
+  tags: lsync

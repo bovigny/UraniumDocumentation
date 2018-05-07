@@ -4,7 +4,7 @@
 - name: Push repos files
   template: src=influxdata.repo.j2 dest=/etc/yum.repos.d/influxdata.repo owner=root group=root mode=0755
   tags:
-    - influxdata
+    - telegraf
 
 - name: install telegraf
   yum: name=telegraf state=present

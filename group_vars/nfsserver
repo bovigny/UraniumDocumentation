@@ -1,4 +1,8 @@
-pathtoshare: /home/softwares
-ipnfsserver: 10.8.102.24
-ipnfsserverldap: 10.8.102.40
-pathtosharehome: /home
+#pathtoshare: /home/softwares
+#ipnfsserver: 10.8.102.24
+#ipnfsserverldap: 10.8.102.40
+#pathtosharehome: /home
+pathtoshare: /softwares
+ipnfsserver: 10.8.102.201
+ipnfsserverldap: 10.8.102.201
+pathtosharehome: /homeMMG

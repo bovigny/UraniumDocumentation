@@ -1,10 +1,40 @@
 ---
 # This playbook deploys the whole application stack in this site.  
 
-- name: apply common configuration to nodes group
-  hosts: nodetest
+#- name: apply common configuration to nodes group
+#  hosts: test
+#  become: true
+#  user: uraniumadm
+#  become_user: root
+#  vars:
+#      ldap: "true"
+#  roles:
+#    - infiniband
+#    - influxdb
+#    - telegraf
+#    - kapacitor
+#    - chronograf
+
+
+
+
+- name: Install Head Node
+  hosts: gw
   become: true
   user: uraniumadm
   become_user: root
+  vars:
+    ldap: "both"
+    slurmctld: "Activate"
   roles:
-    - common
+    #- beegfsClient
+    #- nfsclients
+    #- munge
+    #- slurmPush
+    #- slurminstallrpms
+    #- slurmd
+    #- ModulesEnvironnement
+    #- telegraf
+    #- ssh
+
+

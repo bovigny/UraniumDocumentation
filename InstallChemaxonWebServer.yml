@@ -1,0 +1,7 @@
+- name: Install a new node with all packages
+  hosts: chemaxon
+  become: true
+  user: uraniumadm
+  become_user: root
+  roles:
+    - webservicechemaxon

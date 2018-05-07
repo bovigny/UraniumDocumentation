@@ -22,8 +22,20 @@
 - name: ulimit -n 8192
   shell: ulimit -n 8192
 
-- name: service slurmd restart
-  systemd: state=restarted name=slurmd
+
+- name: openmpi
+  yum: name={{item}} state=present
+  with_items:
+    - openmpi
+    - openmpi-devel
+    - boost
+    - boost-devel
+    - boost-openmpi
+    - boost-system
+
+
+#- name: service slurmd restart
+#  systemd: state=restarted name=slurmd
 
 - name: push module.sh into /etc/profile.d/
   template: src=module.sh dest=/etc/profile.d/module.sh

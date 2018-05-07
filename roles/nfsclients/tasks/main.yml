@@ -21,32 +21,51 @@
   tags:
     - nfsclient
 
+- name: create directory /homeMMG
+  file: path=/homeMMG state=directory owner=root group=root mode=0777
+  when: ldap == "true" or ldap == "both"
+  tags:
+    - nfsclient
+
 - name: mount -o rdma,port=20049 {{ ipnfsserver }}:{{ pathtoshare }} /opt/software
   shell: mount -o rdma,port=20049 {{ ipnfsserver }}:{{ pathtoshare }} /opt/software
   when: ldap == "false" or ldap == "both"
   ignore_errors: true
 
-- name: mount -o rdma,port=20049 {{ ipnfsserverldap }}:{{ pathtosharehome }} /home
-  shell: mount -o rdma,port=20049 {{ ipnfsserverldap }}:{{ pathtosharehome }} /home
+- name: mount -o rdma,port=20049 {{ ipnfsserverldap }}:{{ pathtosharehome }} /homeMMG
+  shell: mount -o rdma,port=20049 {{ ipnfsserverldap }}:{{ pathtosharehome }} /homeMMG
   when: ldap == "true" or ldap == "both"
   ignore_errors: true
 
 
+#- name: install ldap packages client
+#  yum: name={{ item }} state=present
+#  with_items:
+#    - openldap-clients
+#    - nss-pam-ldapd
+#  when: ldap == "true" or ldap == "both"
+#  tags: ldapserver
+
 - name: install ldap packages client
   yum: name={{ item }} state=present
   with_items:
-    - openldap-clients
-    - nss-pam-ldapd
+    - ipa-client
+    - ipa-client-common
   when: ldap == "true" or ldap == "both"
   tags: ldapserver
 
-- name: authconfig --enableldap --enableldapauth --ldapserver={{ ipnfsserverldap }} --ldapbasedn="dc=uranium,dc=lan" --update
-  shell: authconfig --enableldap --enableldapauth --ldapserver={{ ipnfsserverldap }} --ldapbasedn="dc=uranium,dc=lan" --update
-  when: ldap == "true" or ldap == "both"
+#- name: authconfig --enableldap --enableldapauth --ldapserver={{ ipnfsserverldap }} --ldapbasedn="dc=uranium,dc=lan" --update
+#  shell: authconfig --enableldap --enableldapauth --ldapserver={{ ipnfsserverldap }} --ldapbasedn="dc=uranium,dc=lan" --update
+#  when: ldap == "true" or ldap == "both"
 
-- name: Make sure a service is running
-  systemd: state=restarted name=nslcd
+- name: ipa-client-install -U --domain=uranium.lan --realm=URANIUM.LAN --server=ldapserver.uranium.lan --server=ldapserver2.uranium.lan -p admin -w C9#pri%8
+  shell: ipa-client-install -U --domain=uranium.lan --realm=URANIUM.LAN --server=ldapserver.uranium.lan --server=ldapserver2.uranium.lan -p admin -w C9#pri%8
   when: ldap == "true" or ldap == "both"
+  ignore_errors: true
+
+#- name: Make sure a service is running
+#  systemd: state=restarted name=nslcd
+#  when: ldap == "true" or ldap == "both"
 
 
 #  To check throughput/latency of the NFS over RDMA, fio can be used (or any similar test). For example

@@ -1,0 +1,2 @@
+- name: restart kapacitor
+  systemd: name=kapacitor state=restarted daemon_reload=yes

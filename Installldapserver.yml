@@ -36,12 +36,12 @@
     - ldapserver
     - nfsserver
 
-- name: Install Head Node
-  hosts: nfsclients
-  become: true
-  user: uraniumadm
-  become_user: root
-  vars:
-    ldap: "both"
-  roles:
-    - nfsclients
+#- name: Install Head Node
+#  hosts: nfsclients
+#  become: true
+#  user: uraniumadm
+#  become_user: root
+#  vars:
+#    ldap: "both"
+#  roles:
+#    - nfsclients

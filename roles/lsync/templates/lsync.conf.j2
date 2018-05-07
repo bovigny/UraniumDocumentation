@@ -1,0 +1,35 @@
+----
+-- User configuration file for lsyncd.
+--
+-- Simple example for default rsync, but executing moves through on the target.
+--
+-- For more examples, see /usr/share/doc/lsyncd*/examples/
+-- 
+-- sync{default.rsyncssh, source="/var/www/html", host="localhost", targetdir="/tmp/htmlcopy/"}
+
+settings {
+  logfile = "/var/log/lsyncd/lsyncd.log",
+}
+
+{% for tar in targets %}
+{% if   ansible_default_ipv4.address  !=  tar.target  %}
+{% for mounts in lsync_mounts %}
+sync {
+  default.rsync,
+  source="{{ mounts.mount }}",
+  target="{{ tar.target }}:{{ mounts.mount }}",
+  maxDelays = 2,
+  rsync = {
+    compress = true,
+    acls = true,
+    verbose = true,
+    owner = true,
+    group = true,
+    perms = true,
+    rsh = "/usr/bin/ssh -p 22 -o StrictHostKeyChecking=no"
+  }
+}
+{% endfor %}
+{% endif %}
+{% endfor %}
+
