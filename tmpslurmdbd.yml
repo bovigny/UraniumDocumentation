@@ -16,26 +16,15 @@
 #    - chronograf
 
 
-
-
-- name: Install Head Node
-  hosts: gw
+- name: Install Slurm Database
+  hosts: nodedatabase
   become: true
   user: uraniumadm
   become_user: root
-  vars:
-    ldap: "both"
-    slurmctld: "Activate"
   roles:
-    - infiniband
-    #- beegfsClient
-    #- nfsclients
-    #- munge
-    #- slurmPush
-    #- slurminstallrpms
-    #- slurmd
-    #- ModulesEnvironnement
-    - telegraf
-    - ssh
+    - munge
+    - slurmPush
+    - slurminstallrpms
+    - slurmdbd
 
 

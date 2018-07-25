@@ -10,34 +10,34 @@
 
 
 
-- name: installbeegfs Management Node
-  hosts: beegfs-Management-Server
-  become: true
-  user: uraniumadm
-  become_user: root
-  roles:
-    - {role: beegfsMgt}
+#- name: installbeegfs Management Node
+#  hosts: beegfs-Management-Server
+#  become: true
+#  user: uraniumadm
+#  become_user: root
+#  roles:
+#    - {role: beegfsMgt}
 
-- name: installbeegfs Meta Node
-  hosts: beegfs-Metadata-Server
-  become: true
-  user: uraniumadm
-  become_user: root
-  roles:
-    - {role: beegfsMeta}
+#- name: installbeegfs Meta Node
+#  hosts: beegfs-Metadata-Server
+#  become: true
+#  user: uraniumadm
+#  become_user: root
+#  roles:
+#    - {role: beegfsMeta}
 
-- name: installbeegfs Storage Node
-  hosts: beegfs-Storage-Server
-  become: true
-  user: uraniumadm
-  become_user: root
-  roles:
-    - {role: beegfsStorage}
+#- name: installbeegfs Storage Node
+#  hosts: beegfs-Storage-Server
+#  become: true
+#  user: uraniumadm
+#  become_user: root
+#  roles:
+#    - {role: beegfsStorage}
 
-- name: installbeegfs Client Node
-  hosts: beegfs-Client
-  become: true
-  user: uraniumadm
-  become_user: root
-  roles:
-    - {role: beegfsClient}
+#- name: installbeegfs Client Node
+#  hosts: beegfs-Client
+#  become: true
+#  user: uraniumadm
+#  become_user: root
+#  roles:
+#    - {role: beegfsClient}

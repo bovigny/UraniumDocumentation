@@ -4,23 +4,10 @@
 # ansible-playbook InstallNewNodes.yml -u uraniumadm -i inventories/prod.ini --tags "ssh"
 # Ldap both (Nfs for LDAP and /softwares)
 # slurmd "Activate slurmd daemon"
-- name: Install a new node with all packages
+- name: Create Scratch Local
   hosts: clients
   become: true
   user: uraniumadm
   become_user: root
-  vars:
-    ldap: "both"
-    slurmd: "Activate"
   roles:
-    - ipmitool
-    - infiniband
-    - beegfsClient
-    - nfsclients
-    - munge
-    - slurmPush
-    - slurminstallrpms
-    - slurmd
-    - ModulesEnvironnement
-    - telegraf
-    - ssh
+    - scratchlocal

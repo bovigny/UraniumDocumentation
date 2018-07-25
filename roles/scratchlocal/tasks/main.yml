@@ -1,0 +1,5 @@
+- name: create directory /home/scratch
+  file: path=/home/scratch state=directory owner=root group=root mode=0777
+
+- name: add gmpy
+  yum: name=python-gmpy2 state=present

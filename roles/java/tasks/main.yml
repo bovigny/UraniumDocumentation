@@ -12,9 +12,9 @@
   when: not javaexist.stat.exists
   tags: java
 
-- name: untar java
-  unarchive: src=/opt/{{ jdkversion }}.tar.gz dest=/opt remote_src=True
-  tags: java
+#- name: untar java
+#  unarchive: src=/opt/{{ jdkversion }}.tar.gz dest=/opt remote_src=True
+#  tags: java
 
 - name: remove {{ jdkversion }}.tar.gz
   shell: rm /opt/{{ jdkversion }}.tar.gz

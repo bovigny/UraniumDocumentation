@@ -64,6 +64,7 @@
   command: bash -c "ifdown ib0 && ifup ib0"
 
 
+
 #- name: Ansible grep pattern with ignore_errors example
 #  become: yes
 #  become_user: root

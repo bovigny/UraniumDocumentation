@@ -23,7 +23,8 @@
 
 
 - name: The metadata service needs to know where it can store its data.
-  command: /opt/beegfs/sbin/beegfs-setup-meta -p {{ metadatadirectory }} -s {{ nn }} -m {{ managementnode }}
+  #command: /opt/beegfs/sbin/beegfs-setup-meta -p {{ metadatadirectory }} -s {{ nn }} -m {{ managementnode }}
+  command: /opt/beegfs/sbin/beegfs-setup-meta -p {{ metadatadirectory }} -s 1 -m {{ managementnode }}
   ignore_errors: True
   when: contents.stdout == ""
   notify:

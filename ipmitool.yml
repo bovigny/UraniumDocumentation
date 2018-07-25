@@ -3,7 +3,7 @@
 
 - name: apply common configuration to nodes group
   #hosts: nodes
-  hosts: ts
+  hosts: nodetmp
   user: uraniumadm
   become_user: root
   roles:

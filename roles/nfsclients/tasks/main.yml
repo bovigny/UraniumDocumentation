@@ -58,8 +58,8 @@
 #  shell: authconfig --enableldap --enableldapauth --ldapserver={{ ipnfsserverldap }} --ldapbasedn="dc=uranium,dc=lan" --update
 #  when: ldap == "true" or ldap == "both"
 
-- name: ipa-client-install -U --domain=uranium.lan --realm=URANIUM.LAN --server=ldapserver.uranium.lan --server=ldapserver2.uranium.lan -p admin -w C9#pri%8
-  shell: ipa-client-install -U --domain=uranium.lan --realm=URANIUM.LAN --server=ldapserver.uranium.lan --server=ldapserver2.uranium.lan -p admin -w C9#pri%8
+- name: ipa-client-install -U --domain=uranium.lan --realm=URANIUM.LAN --server=ldapserver.uranium.lan --server=ldapserver2.uranium.lan -p admin -w C9#pri%8 --force-join
+  shell: ipa-client-install -U --domain=uranium.lan --realm=URANIUM.LAN --server=ldapserver.uranium.lan --server=ldapserver2.uranium.lan -p admin -w C9#pri%8 --force-join
   when: ldap == "true" or ldap == "both"
   ignore_errors: true
 

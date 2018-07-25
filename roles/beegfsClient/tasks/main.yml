@@ -34,7 +34,7 @@
   ignore_errors: True
 
 - name: get the last kernel /usr/src/kernels
-  shell: /usr/bin/ls -1h /usr/src/kernels/ | /usr/bin/tail -n2 | grep -v debug
+  shell: /usr/bin/ls -1h /usr/src/kernels/ | /usr/bin/tail -n1 | grep -v debug
   register: resultkernelnodebug
 
 - name: get the last kernel /lib/modules/
@@ -87,6 +87,50 @@
   file: path=/mnt/beegfs state=directory owner=root
   ignore_errors: True
   tags: client
+
+
+#
+# PATCH beegfs centos 7.5
+#wget https://www.beegfs.io/release/beegfs_6/0001-client-fix-readdir-in-rhel-7.5.patch -O /opt/beegfs/src/client/beegfs_client_module_6/0001-client-fix-readdir-in-rhel-7.5.patch
+ #$ cd /opt/beegfs/src/client/beegfs_client_module_6
+ #$ patch -p2 < 0001-client-fix-readdir-in-rhel-7.5.patch
+ #$ /etc/init.d/beegfs-client rebuild
+ #$ systemctl restart beegfs-client          # /etc/init.d/beegfs-client restart
+ #$ mount | grep bee
+#
+#
+#
+#
+
+
+- name: Download Patch Centos 7.5
+  command: wget https://www.beegfs.io/release/beegfs_6/0001-client-fix-readdir-in-rhel-7.5.patch -O /opt/beegfs/src/client/beegfs_client_module_6/0001-client-fix-readdir-in-rhel-7.5.patch
+  tags:
+    - client
+
+
+#- name: patch
+#  command: cd /opt/beegfs/src/client/beegfs_client_module_6/ ; /usr/bin/patch -p2 < /opt/beegfs/src/client/beegfs_client_module_6/0001-client-fix-readdir-in-rhel-7.5.patch
+#  tags:
+#    - client
+
+
+- name: Push files patch.sh.j2
+  template: src=patch.sh.j2 dest=/root/patch.sh owner=root group=root mode=0755
+  tags:
+    - client
+
+- name: execute patch
+  command: /usr/bin/sh /root/patch.sh
+  tags:
+    - client
+
+- name: Force a rebuild on the client
+  command: /etc/init.d/beegfs-client rebuild
+  register: outputrebuild
+  failed_when: "not outputrebuild.stdout_lines[1] == 'Building beegfs client module'"
+  tags:
+    - client
 
 - name: Make sure a service is running
   systemd: state=started name=beegfs-helperd
