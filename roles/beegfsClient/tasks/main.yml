@@ -103,10 +103,10 @@
 #
 
 
-- name: Download Patch Centos 7.5
-  command: wget https://www.beegfs.io/release/beegfs_6/0001-client-fix-readdir-in-rhel-7.5.patch -O /opt/beegfs/src/client/beegfs_client_module_6/0001-client-fix-readdir-in-rhel-7.5.patch
-  tags:
-    - client
+#- name: Download Patch Centos 7.5
+#  command: wget https://www.beegfs.io/release/beegfs_6/0001-client-fix-readdir-in-rhel-7.5.patch -O /opt/beegfs/src/client/beegfs_client_module_6/0001-client-fix-readdir-in-rhel-7.5.patch
+#  tags:
+#    - client
 
 
 #- name: patch
@@ -115,22 +115,22 @@
 #    - client
 
 
-- name: Push files patch.sh.j2
-  template: src=patch.sh.j2 dest=/root/patch.sh owner=root group=root mode=0755
-  tags:
-    - client
+#- name: Push files patch.sh.j2
+#  template: src=patch.sh.j2 dest=/root/patch.sh owner=root group=root mode=0755
+#  tags:
+#    - client
 
-- name: execute patch
-  command: /usr/bin/sh /root/patch.sh
-  tags:
-    - client
+#- name: execute patch
+#  command: /usr/bin/sh /root/patch.sh
+#  tags:
+#    - client
 
-- name: Force a rebuild on the client
-  command: /etc/init.d/beegfs-client rebuild
-  register: outputrebuild
-  failed_when: "not outputrebuild.stdout_lines[1] == 'Building beegfs client module'"
-  tags:
-    - client
+#- name: Force a rebuild on the client
+#  command: /etc/init.d/beegfs-client rebuild
+#  register: outputrebuild
+#  failed_when: "not outputrebuild.stdout_lines[1] == 'Building beegfs client module'"
+#  tags:
+#    - client
 
 - name: Make sure a service is running
   systemd: state=started name=beegfs-helperd
